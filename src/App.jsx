@@ -15,8 +15,8 @@ function App() {
         <NavBar />
         <Routes>
         
-          <Route></Route>
-          <Route></Route>
+          <Route path="/"/>
+          <Route/>
         </Routes>
 
         <div className="card">
