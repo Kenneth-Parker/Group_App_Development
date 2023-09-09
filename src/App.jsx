@@ -13,11 +13,11 @@ function App() {
     <>
       <Router>
         <NavBar />
-        <Routes>
+        {/* <Routes>
         
-          <Route path="/"/>
+          <Route path="/"/> 
           <Route/>
-        </Routes>
+        </Routes> */}
 
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>

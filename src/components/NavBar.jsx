@@ -8,10 +8,8 @@ export default function NavBar() {
       <header>
         <h1>Ur Pantry Ur Way</h1>
       </header>
- <Link to={'/'}></Link>
- <Link to={'/'}>
-            Northwest <span>Animal Hospital</span>
-            </Link>
+
+        
     </>
   );
 }
