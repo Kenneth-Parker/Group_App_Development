@@ -1,5 +1,5 @@
 const test = console.log
-import Pantry from '/Users/xavierrice/Desktop/Module3/Group_App_Development/src/pantryDb/pantry.json'
+import Pantry from './pantryDb/pantry.json'
 import { useState, useEffect } from "react";
 
 
