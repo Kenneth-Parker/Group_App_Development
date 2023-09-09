@@ -1,8 +1,8 @@
 
 
 
-
+## In Progress 
 
 ### Instructions to access {Ur Pantry Ur Way}
 
-Run `npm i` or `npm install`
+1. Run `npm i` or `npm install`
