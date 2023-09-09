@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
 background-color: #7e2a0391;
+border: 2px solid teal;
 color: #fff;
 padding: 10px;
 `;
