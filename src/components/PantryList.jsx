@@ -1,5 +1,7 @@
-const test = console.log; // i make a console.log === test cuz i get lazy typing out c..o...n..
-import Pantry from "/Users/xavierrice/Desktop/Module3/Group_App_Development/src/pantryDb/pantry.json";
+
+const test = console.log
+import Pantry from './pantryDb/pantry.json'
+
 import { useState, useEffect } from "react";
 
 
