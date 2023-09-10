@@ -11,6 +11,8 @@ import PantryList from "./components/PantryList";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [selectedItem, setSelectedItem] = useState([])
+  console.log(selectedItem)
 
   return (
     <>
@@ -34,7 +36,7 @@ function App() {
           Click on the Vite and React logos to learn more
         </p>
       </Router>
-      <PantryList/>
+      <PantryList selectedItem={selectedItem}setSelectedItem={setSelectedItem}/>
     </>
   );
 
