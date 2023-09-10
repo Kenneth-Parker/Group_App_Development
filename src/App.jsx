@@ -3,8 +3,10 @@ import { useState } from "react";
 import "./App.css";
 
 //components
-import tester from "./components/tester";
+
 import NavBar from "./components/NavBar";
+import PantryList from "./components/PantryList";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,6 +36,7 @@ function App() {
           Click on the Vite and React logos to learn more
         </p>
       </Router>
+      <PantryList/>
     </>
   );
 }
