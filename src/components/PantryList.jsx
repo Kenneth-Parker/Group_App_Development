@@ -4,7 +4,7 @@ import Pantry from '../pantryDb/pantry.json'
 import { useState, useEffect } from "react";
 
 
-const PantryList = () => {
+const PantryList = ({selectedItem, setSelectedItem}) => {
   const [pantryItems, setPantryItems] = useState([]);
 
   useEffect(() => {
@@ -12,11 +12,17 @@ const PantryList = () => {
     setPantryItems(Pantry);
   }, []);
 
-  const ItemsOfPantry = pantryItems.map((obj) => {
+  function handleOnClick(){
+    setSelectedItem([...selectedItem, event.target.value])
+  }
+
+
+  const ItemsOfPantry = pantryItems.map((obj, i) => {
     return (
-      <h4 id={Object.values(obj)[0]}>
+      <h4 id={i}>
         {Object.keys(obj)[0]}
         <br></br>
+        <button id={Object.values(obj)[0]} value={Object.keys(obj)[0]} onClick={handleOnClick}></button>
         <hr></hr>
       </h4>
     );
