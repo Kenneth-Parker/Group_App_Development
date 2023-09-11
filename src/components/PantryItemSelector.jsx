@@ -16,6 +16,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
           <li key={index}>{item}</li>
         ))}
       </ul>
+      {/* returns selected items underneath dropdown */}
     </div>
   );
 };

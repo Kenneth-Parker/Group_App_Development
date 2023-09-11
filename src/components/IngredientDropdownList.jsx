@@ -23,8 +23,7 @@ const IngredientDropdownList = ( {onSelect}) => {
     const combinedIngredients = [
         ...new Set([...ingredients, ...pantryIngredients]),
       ];
-
-    // Set the combined ingredients in the state
+      
     setAllIngredients(combinedIngredients);
   }, []);
 
