@@ -5,6 +5,8 @@ import './App.css';
 import NavBar from './components/NavBar';
 import PantryList from './components/PantryList';
 import PantryItemSelector from './components/PantryItemSelector';
+import MealApi from './components/MealApi';
+import ShoppingForm from './components/ShoppingForm';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -23,6 +25,7 @@ function App() {
         </Routes>
       </Router>
       <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
+      <ShoppingForm/>
     </>
   );
 }

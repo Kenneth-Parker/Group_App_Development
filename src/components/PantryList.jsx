@@ -5,7 +5,7 @@ const PantryList = ({ selectedItems }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_REACT_VAR;
+    const apiKey = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
     const query = selectedItems.join(','); // Convert selected items to strings to separate data
 
     setLoading(true);
