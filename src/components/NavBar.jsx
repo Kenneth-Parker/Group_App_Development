@@ -25,7 +25,9 @@ const AboutLink = styled(Link)`
     margin-left: 440px;
   text-decoration: none;
 `
-
+const ContactLink = styled(Link)`
+    text-decoration: none;
+`
 
 
 
@@ -35,8 +37,11 @@ export default function NavBar() {
       <StyledHeader>
         <h1>Ur Pantry Ur Way</h1>
         <StyledNav>
+          
           <HomeLink to="/">Home</HomeLink>
           <AboutLink to="/about">About</AboutLink>
+          <ContactLink to="/about">Contact Us</ContactLink>
+
         </StyledNav>
       </StyledHeader>
     </>
