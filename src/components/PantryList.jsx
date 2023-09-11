@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
 
-const PantryList = ({ selectedItems }) => {
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(false);
+
+const test = console.log
+import Pantry from '../pantryDb/pantry.json'
+
+import { useState, useEffect } from "react";
+
+
+const PantryList = ({selectedItem, setSelectedItem}) => {
+  const [pantryItems, setPantryItems] = useState([]);
+
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_REACT_VAR;
