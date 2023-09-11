@@ -1,34 +1,19 @@
 import { useState } from 'react';
-import ingredients from '../components/pantryitems'
+import IngredientDropdownList from "./IngredientDropdownList";
 
 const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
-  const [pantryItems, setPantryItems] = useState(ingredients);
 
-  const toggleItemSelection = (item) => {
-    if (selectedItems.includes(item)) {
-      // Deselect the item
-      setSelectedItems(selectedItems.filter((selected) => selected !== item));
-    } else {
-      // Select the item
-      setSelectedItems([...selectedItems, item]);
-    }
+  const handleSelect = (selectedIngredient) => {
+    setSelectedItems([...selectedItems, selectedIngredient]);
   };
 
   return (
     <div>
-      <h4>Select pantry items:</h4>
+      <h2>Select Ingredients</h2>
+      <IngredientDropdownList onSelect={handleSelect} />
       <ul>
-        {pantryItems.map((item) => (
-          <li key={item}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedItems.includes(item)}
-                onChange={() => toggleItemSelection(item)}
-              />
-              {item}
-            </label>
-          </li>
+        {selectedItems.map((item, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>
@@ -36,3 +21,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 };
 
 export default PantryItemSelector;
+
+
+
+
