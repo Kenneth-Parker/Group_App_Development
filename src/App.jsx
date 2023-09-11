@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import PantryList from './components/PantryList';
 import PantryItemSelector from './components/PantryItemSelector';
+// import IngredientDropdownList from './components/IngredientDropdownList';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<PantryList selectedItems={selectedItems} />} />
         </Routes>
       </Router>
+      {/* <IngredientDropdownList /> */}
       <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
     </>
   );
