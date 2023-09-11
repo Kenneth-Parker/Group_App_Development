@@ -1,10 +1,28 @@
-
-const test = console.log
-import Pantry from '../pantryDb/pantry.json'
+const test = console.log;
+import Pantry from "../pantryDb/pantry.json";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
+const Styledh4 = styled.h4`
+border: 2px solid green;
 
-const PantryList = ({selectedItem, setSelectedItem}) => {
+display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    /* tablets and larger screens */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+     /* desktops  */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+  }
+`;
+const PantryList = ({ selectedItem, setSelectedItem }) => {
   const [pantryItems, setPantryItems] = useState([]);
 
   useEffect(() => {
@@ -12,17 +30,20 @@ const PantryList = ({selectedItem, setSelectedItem}) => {
     setPantryItems(Pantry);
   }, []);
 
-  function handleOnClick(){
-    setSelectedItem([...selectedItem, event.target.value])
+  function handleOnClick() {
+    setSelectedItem([...selectedItem, event.target.value]);
   }
-
 
   const ItemsOfPantry = pantryItems.map((obj, i) => {
     return (
       <h4 id={i}>
         {Object.keys(obj)[0]}
         <br></br>
-        <button id={Object.values(obj)[0]} value={Object.keys(obj)[0]} onClick={handleOnClick}></button>
+        <button
+          id={Object.values(obj)[0]}
+          value={Object.keys(obj)[0]}
+          onClick={handleOnClick}
+        ></button>
         <hr></hr>
       </h4>
     );
@@ -30,7 +51,7 @@ const PantryList = ({selectedItem, setSelectedItem}) => {
 
   return (
     <div>
-      <h4>{ItemsOfPantry}</h4>
+      <Styledh4>{ItemsOfPantry}</Styledh4>
     </div>
   );
 };
