@@ -1,37 +1,68 @@
+import { useState, useEffect } from 'react';
 
-const test = console.log
-import Pantry from './pantryDb/pantry.json'
-
-import { useState, useEffect } from "react";
-
-
-const PantryList = ({selectedItem, setSelectedItem}) => {
-  const [pantryItems, setPantryItems] = useState([]);
+const PantryList = ({ selectedItems }) => {
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    //using use effect so it this happens before the page is loaded.
-    setPantryItems(Pantry);
-  }, []);
+    const apiKey = import.meta.env.VITE_REACT_VAR;
+    const query = selectedItems.join(','); // Convert selected items to strings to separate data
 
-  function handleOnClick(){
-    setSelectedItem([...selectedItem, event.target.value])
-  }
+    setLoading(true);
 
+    // Check if there are selected ingredients
+    if (selectedItems.length === 0) {
+      setRecipes([]);
+      setLoading(false);
+      return;
+    }
 
-  const ItemsOfPantry = pantryItems.map((obj, i) => {
-    return (
-      <h4 id={i}>
-        {Object.keys(obj)[0]}
-        <br></br>
-        <button id={Object.values(obj)[0]} value={Object.keys(obj)[0]} onClick={handleOnClick}></button>
-        <hr></hr>
-      </h4>
-    );
-  }); //mapping through my array of objs and using Object.keys to get the name of the item. [0] selects just the string.
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setRecipes(data.results);
+        setLoading(false);
+        console.log("Received recipes data:", data.results);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setLoading(false);
+      });
+  }, [selectedItems]);
+
+  const renderRecipes = () => {
+    if (loading) {
+      return <p>Loading...</p>;
+    } else if (recipes.length === 0) {
+      return <p>No recipes found for selected items.</p>;
+    } else {
+      return (
+        <ul>
+          {recipes.map((recipe) => (
+            <li key={recipe.id}>
+              <h4>{recipe.title}</h4>
+              <img src={recipe.image} alt={recipe.title} />
+              <a href={recipe.sourceUrl}>{recipe.title}</a>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  };
+
+  console.log("PantryList component rendered");
 
   return (
     <div>
-      <h4>{ItemsOfPantry}</h4>
+      <h4>Recipes based on selected pantry items:</h4>
+      {renderRecipes()}
     </div>
   );
 };
