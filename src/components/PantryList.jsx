@@ -51,7 +51,7 @@ const PantryList = ({ selectedItems }) => {
               <img src={recipe.image} alt={recipe.title} />
               <a href={recipe.sourceUrl}>
                 <br />
-                {recipe.title}
+                Recipe Instructions for {recipe.title} 
               </a>
             </li>
           ))}

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-background-color: #7e2a0391;
+background-color: #173458;
 border: 2px solid teal;
-color: #fff;
+color: #ffffff;
 padding: 10px;
 
 `;
@@ -22,10 +22,8 @@ const StyledNav = styled.nav`
 const StyledLink = styled(Link)`
   text-decoration: none;
   margin-right: 20px;
+  color: goldenrod;
 `;
-
-
-
 
 
 
@@ -34,7 +32,7 @@ export default function NavBar() {
     <>
       <StyledHeader>
 
-        <StyledH1>Ur Pantry Ur Way</StyledH1>
+        <StyledH1>Ur Ingredients - Hour Recipes</StyledH1>
 
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
