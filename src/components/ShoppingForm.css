@@ -1,6 +1,32 @@
-#ShoppingList {
+@import url('https://fonts.googleapis.com/css2?family=Font+Zeyada&display=swap');
 
-border: 10px solid gold;
+.container {
+   
+    width: 75%;
+    height: 75vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Notepad_clipart.png') ;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-left: 90px ;
+}
+
+form{
+   margin-top: 200px;
+}
+
+.title{
+    font-family: 'Zeyada', sans-serif;
+    font-size: xx-large;
+}
 
 
+
+input{
+    width: 60%;
+    padding: 15px;
+    margin: 5px 0;
 }

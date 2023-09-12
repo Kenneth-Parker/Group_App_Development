@@ -23,11 +23,12 @@ function App() {
           <Route path="/" element={ <div><PantryList selectedItems={selectedItems} /> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> </div>}/>
           <Route path="/about" element={<h4>yup</h4>} />
           <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
+          <Route path="/shopping List" element={<ShoppingForm/>}/>
         </Routes>
       </Router>
 
-      <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
-      <ShoppingForm/>
+      
+    
 
 
       {/* <IngredientDropdownList /> */}
