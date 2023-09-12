@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 const MealApi = () => {
-    const apiUrl = 'https://api.edamam.com/api/recipes/v2';
+    const apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast';
 
 useEffect(() => {
 
@@ -17,9 +17,6 @@ useEffect(() => {
     .then((data) => console.log(data))
     .catch((error) => console.log("There's an err with fetching data:", error));
 }, []);
-
-
-
 
 return <></>;
 };

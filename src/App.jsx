@@ -12,7 +12,8 @@ import ShoppingForm from './components/ShoppingForm';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
-  console.log(selectedItems);
+  const [shoppingList, setShoppingList] = useState([]);
+  console.log(shoppingList);
 
   return (
     <>
@@ -23,11 +24,11 @@ function App() {
           <Route path="/" element={ <div><PantryList selectedItems={selectedItems} /> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> </div>}/>
           <Route path="/about" element={<h4>yup</h4>} />
           <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
-          <Route path="/shopping List" element={<ShoppingForm/>}/>
+          <Route path="/shopping List" element={<ShoppingForm shoppingList={shoppingList} setShoppingList={setShoppingList}/>}/>
         </Routes>
       </Router>
 
-      
+      <MealApi/>
     
 
 
