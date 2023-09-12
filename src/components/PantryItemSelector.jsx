@@ -6,6 +6,11 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
     setSelectedItems([...selectedItems, selectedIngredient]);
   };
 
+  const handleRemove = (itemToRemove) => {
+    const updatedItems = selectedItems.filter((item) => item !== itemToRemove)
+    setSelectedItems(updatedItems);
+  };
+
   return (
     <div>
       <h2>Select Ingredients</h2>
@@ -13,7 +18,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 
       <ul>
         {selectedItems.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>{item} <button onClick={() => handleRemove(item)}>X</button></li>
         ))}
       </ul>
 
@@ -23,7 +28,3 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 };
 
 export default PantryItemSelector;
-
-
-
-
