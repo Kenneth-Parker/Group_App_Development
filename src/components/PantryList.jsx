@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const PantryList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_REACT_VAR;
+    const apiKey = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
     const query = selectedItems.join(','); // Convert selected items to strings to separate data
+    // const apiKey = import.meta.env.VITE_REACT_VAR;
+    // const query = selectedItems.join(","); // Convert selected items to strings to separate data
+
 
     setLoading(true);
 
@@ -49,7 +52,10 @@ const PantryList = ({ selectedItems }) => {
             <li key={recipe.id}>
               <h4>{recipe.title}</h4>
               <img src={recipe.image} alt={recipe.title} />
-              <a href={recipe.sourceUrl}>{recipe.title}</a>
+              <a href={recipe.sourceUrl}>
+                <br />
+                Recipe Instructions for {recipe.title} 
+              </a>
             </li>
           ))}
         </ul>
