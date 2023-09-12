@@ -7,7 +7,7 @@ background-color: #173458;
 border: 2px solid teal;
 color: #ffffff;
 padding: 10px;
-
+border-radius: 22px;
 `;
 
 const StyledH1 = styled.h1`
