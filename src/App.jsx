@@ -26,8 +26,8 @@ function App() {
         </Routes>
       </Router>
 
-      <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
-      <ShoppingForm/>
+      {/* <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
+      {/* <ShoppingForm/> */}
 
 
       {/* <IngredientDropdownList /> */}
