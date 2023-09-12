@@ -12,10 +12,11 @@ const IngredientDropdownList = ({ onSelect }) => {
 
   return (
     <select onChange={(e) => onSelect(e.target.value)}>
-      {allIngredients.map((ingredient, index) => (
-        <option key={index} value={ingredient}>
-          {ingredient}
-        </option>
+    <option value="">Click Here to Choose</option>
+  {allIngredients.map((ingredient, index) => (
+    <option key={index} value={ingredient}>
+      {ingredient}
+    </option>
       ))}
     </select>
   );
