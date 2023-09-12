@@ -1,4 +1,19 @@
 import IngredientDropdownList from "./IngredientDropdownList";
+import styled from "styled-components";
+
+
+const StyledButton = styled.button`
+  padding: 1px 2.2px;
+  background-color: #ae0a0a; /* Green */
+  border-radius: em;
+  color: white;
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+`
+
 
 const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 
@@ -18,7 +33,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 
       <ul>
         {selectedItems.map((item, index) => (
-          <li key={index}>{item} <button onClick={() => handleRemove(item)}>X</button></li>
+          <li key={index}>{item} <StyledButton onClick={() => handleRemove(item)}>X</StyledButton></li>
         ))}
       </ul>
 
