@@ -1,37 +1,54 @@
-import { useState } from 'react';
-import ingredients from '../components/pantryitems'
+import IngredientDropdownList from "./IngredientDropdownList";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+border: 2px solid grey;
+border-radius: 22px;
+width: auto;
+`;
+const StyledUl = styled.ul`
+  text-decoration: none;
+`;
+const StyledButton = styled.button`
+  padding: 1px 2.2px;
+  background-color: #ae0a0a; 
+  /* border-radius: 48%; vote  */
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+`;
+
+const StyledH2 = styled.h2`
+  overflow-wrap: break-word;
+`
 
 const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
-  const [pantryItems, setPantryItems] = useState(ingredients);
+  const handleSelect = (selectedIngredient) => {
+    setSelectedItems([...selectedItems, selectedIngredient]);
+  };
 
-  const toggleItemSelection = (item) => {
-    if (selectedItems.includes(item)) {
-      // Deselect the item
-      setSelectedItems(selectedItems.filter((selected) => selected !== item));
-    } else {
-      // Select the item
-      setSelectedItems([...selectedItems, item]);
-    }
+  const handleRemove = (itemToRemove) => {
+    const updatedItems = selectedItems.filter((item) => item !== itemToRemove);
+    setSelectedItems(updatedItems);
   };
 
   return (
-    <div>
-      <h4>Select pantry items:</h4>
+    <StyledDiv>
+      <StyledH2>Select Ingredients</StyledH2>
+      <IngredientDropdownList onSelect={handleSelect} />
+
       <ul>
-        {pantryItems.map((item) => (
-          <li key={item}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedItems.includes(item)}
-                onChange={() => toggleItemSelection(item)}
-              />
-              {item}
-            </label>
-          </li>
+        {selectedItems.map((item, index) => (
+          <StyledUl key={index}>
+            {item}{" "}
+            <StyledButton onClick={() => handleRemove(item)}>X</StyledButton>
+          </StyledUl>
         ))}
       </ul>
-    </div>
+
+      {/* returns selected items underneath dropdown */}
+    </StyledDiv>
   );
 };
 

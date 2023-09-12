@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 
@@ -7,6 +7,8 @@ import PantryList from './components/PantryList';
 import PantryItemSelector from './components/PantryItemSelector';
 import MealApi from './components/MealApi';
 import ShoppingForm from './components/ShoppingForm';
+// import IngredientDropdownList from './components/IngredientDropdownList';
+
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -16,16 +18,21 @@ function App() {
     <>
       <Router>
         <NavBar />
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
+       
         <Routes>
-          <Route path="/" element={<PantryList selectedItems={selectedItems} />} />
+          <Route path="/" element={ <div><PantryList selectedItems={selectedItems} /> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> </div>}/>
+          <Route path="/about" element={<h4>yup</h4>} />
+          <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
         </Routes>
       </Router>
+
       <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
       <ShoppingForm/>
+
+
+      {/* <IngredientDropdownList /> */}
+      
+
     </>
   );
 }
