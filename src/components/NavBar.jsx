@@ -15,14 +15,16 @@ overflow-wrap: break-word;
 background: linear-gradient(
     90deg,
   
-    rgba(9, 9, 121, 1) 7%,
+    #094579 14%,
     #06aa7ee9 65%,
-    #cdbd06e9 90%
+    #eef51ea8 85%
   );
   background-clip: text;
  text-fill-color: transparent;
+ border-radius: 7px;
+margin:17px 0px 9px 0px;
   /* max-width: max-content; */
-`
+`;
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -35,13 +37,10 @@ const StyledLink = styled(Link)`
   color: goldenrod;
 `;
 
-
-
 export default function NavBar() {
   return (
     <>
       <StyledHeader>
-
         <StyledH1>Ur Ingredients - Hour Recipes</StyledH1>
 
         <StyledNav>
