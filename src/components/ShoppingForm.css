@@ -1,6 +1,20 @@
-#ShoppingList {
+.container {
+   
+    width: 75%;
+    height: 75vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Notepad_clipart.png') ;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-left: 90px ;
 
-border: 10px solid gold;
+}
 
-
+input{
+    width: 60%;
+    padding: 15px;
+    margin: 5px 0;
 }

@@ -1,4 +1,4 @@
-
+import "./ShoppingForm.css"
 import ingredients from "./pantryitems.js";
 import { useState } from "react";
 
@@ -37,10 +37,26 @@ const ShoppingForm = () => {
 
     function handleItem4() {
     setItem4(event.target.value)
+    };
 
-};
+    function handleOnClick(itemToRemove){
+       const updatedList = shoppingList.filter((listItems) => listItems !== itemToRemove)
+        setShoppingList(updatedList)
+    }
+
+    const ReturnedList = () => {
+        return (
+            <ul>
+               {shoppingList.map((item, i) => (
+            <li id={i} value={item} onClick={() => handleOnClick(item)}>{item}</li> ))}
+           </ul>
+        )
+      }
+    
+    
 
 return (
+    <div className="container">
     <div className="ShoppingList"> 
         <form onSubmit={handleSubmit}>
             <input
@@ -71,12 +87,17 @@ return (
                 onChange={handleItem4}
                 placeholder="item 4"
             />
+            <br></br>
             <button
                 type="submit">
                 Submit</button>
         </form>
     </div>
+     <div>
+       {ReturnedList()}
+     </div>
 
+    </div>
 
 );
 };
