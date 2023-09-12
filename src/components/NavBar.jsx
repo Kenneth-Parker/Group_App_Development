@@ -11,7 +11,7 @@ border-radius: 22px;
 `;
 
 const StyledH1 = styled.h1`
-
+overflow-wrap: break-word;
 `
 const StyledNav = styled.nav`
   display: flex;

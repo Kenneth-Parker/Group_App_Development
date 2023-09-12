@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledDiv = styled.div`
 border: 2px solid grey;
 border-radius: 22px;
+width: auto;
 `;
 const StyledUl = styled.ul`
   text-decoration: none;
@@ -18,6 +19,10 @@ const StyledButton = styled.button`
   font-size: 8px;
 `;
 
+const StyledH2 = styled.h2`
+  overflow-wrap: break-word;
+`
+
 const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
   const handleSelect = (selectedIngredient) => {
     setSelectedItems([...selectedItems, selectedIngredient]);
@@ -30,7 +35,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
 
   return (
     <StyledDiv>
-      <h2>Select Ingredients</h2>
+      <StyledH2>Select Ingredients</StyledH2>
       <IngredientDropdownList onSelect={handleSelect} />
 
       <ul>
