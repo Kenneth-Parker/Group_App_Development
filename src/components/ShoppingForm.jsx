@@ -59,6 +59,7 @@ return (
     <div className="container">
     <div className="ShoppingList"> 
         <form onSubmit={handleSubmit}>
+      <h3 className="title">SHOPPING LIST</h3>
             <input
                 name="item1"
                 type="text"
