@@ -1,6 +1,5 @@
 
-
-import pantryitems from "./pantryitems.js";
+import ingredients from "./pantryitems.js";
 import { useState } from "react";
 
 const ShoppingForm = () => {
@@ -13,8 +12,8 @@ const ShoppingForm = () => {
     function handleSubmit(event) {
         event.preventDefault();
         const newItems = [item1, item2, item3, item4].filter((item) => item.trim() !== "");
-        const uniqueItems = newItems.filter((newItem) => !pantryitems.includes(newItem))
-        pantryitems.push(...uniqueItems)
+        const uniqueItems = newItems.filter((newItem) => !ingredients.includes(newItem))
+        ingredients.push(...uniqueItems)
 
         setShoppingList([...shoppingList, ...newItems])
         setItem1("")
@@ -23,7 +22,7 @@ const ShoppingForm = () => {
         setItem4("")
     }
 
-    console.log(pantryitems)
+    console.log(ingredients)
 
     function handleItem1() {
         setItem1(event.target.value)
@@ -40,7 +39,6 @@ const ShoppingForm = () => {
     setItem4(event.target.value)
 
 };
-
 
 return (
     <div className="ShoppingList"> 
@@ -78,6 +76,8 @@ return (
                 Submit</button>
         </form>
     </div>
+
+
 );
 };
 
