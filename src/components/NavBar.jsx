@@ -12,6 +12,16 @@ border-radius: 22px;
 
 const StyledH1 = styled.h1`
 overflow-wrap: break-word;
+background: linear-gradient(
+    90deg,
+  
+    rgba(9, 9, 121, 1) 7%,
+    #06aa7ee9 65%,
+    #cdbd06e9 90%
+  );
+  background-clip: text;
+ text-fill-color: transparent;
+  /* max-width: max-content; */
 `
 const StyledNav = styled.nav`
   display: flex;

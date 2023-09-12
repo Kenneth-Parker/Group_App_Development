@@ -17,12 +17,14 @@ function App() {
         <NavBar />
        
         <Routes>
-          <Route path="/" element={<PantryList selectedItems={selectedItems} />} />
+          <Route path="/" element={ <div><PantryList selectedItems={selectedItems} /> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> </div>}/>
+          <Route path="/about" element={<h4>yup</h4>} />
+          <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
         </Routes>
       </Router>
 
       {/* <IngredientDropdownList /> */}
-      <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
+      
     </>
   );
 }
