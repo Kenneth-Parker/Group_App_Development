@@ -32,11 +32,6 @@ const PantryList = ({ selectedItems }) => {
 
   useEffect(() => {
     const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
-    const query = selectedItems.join(','); // Convert selected items to strings to separate data
-    const apiKey = import.meta.env.VITE_REACT_VAR;
-  
-
-
     const query = selectedItems.join(","); // Convert selected items to strings to separate data
     const apiKey = import.meta.env.VITE_REACT_VAR;
 
@@ -50,7 +45,7 @@ const PantryList = ({ selectedItems }) => {
     }
 
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKeyx}`
     )
       .then((response) => {
         if (!response.ok) {

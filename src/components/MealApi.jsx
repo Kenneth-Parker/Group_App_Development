@@ -24,6 +24,10 @@ const EdamamList = ({ selectedItems }) => {
   const [loading, setLoading] = useState(false);
 
 
+  useEffect(() => {
+    const apiKey = import.meta.env.VITE_REACT_VAR2;
+    const query = selectedItems.join(",");
+    const appID = import.meta.env.VITE_REACT_VAR2_ID;
 
     setLoading(true);
 
