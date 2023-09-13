@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
@@ -41,7 +40,6 @@ export default function NavBar() {
     <>
       <StyledHeader>
         <StyledH1>Ur Ingredients - Hour Recipes</StyledH1>
-
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>

@@ -1,9 +1,4 @@
-import {
-  useLocation,
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 
@@ -13,7 +8,6 @@ import PantryList from "./components/PantryList";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
 
-
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
   console.log(selectedItems);
@@ -22,19 +16,17 @@ function App() {
     <>
       <Router>
         <NavBar />
-
         <Routes>
           <Route
             path="/"
             element={
               <div>
-                {" "}
                 <PantryItemSelector
                   selectedItems={selectedItems}
                   setSelectedItems={setSelectedItems}
-                />{" "}
-                <PantryList selectedItems={selectedItems} />{" "}
-                <EdamamList selectedItems={selectedItems} />{" "}
+                />
+                <PantryList selectedItems={selectedItems} />
+                <EdamamList selectedItems={selectedItems} />
               </div>
             }
           />
@@ -46,8 +38,6 @@ function App() {
           <Route path="/shopping List" element={<ShoppingForm />} />
         </Routes>
       </Router>
-
-      {/* <IngredientDropdownList /> */}
     </>
   );
 }
