@@ -1,15 +1,39 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const StyledLi = styled.ul`
+  text-decoration: none ;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+// rendered recipes
+const StyledDiv = styled.div`
+ display: grid;
+border: 2px solid grey;
+border-radius: 22px;
+background-color: #4d99cd91;
+`;
+
+// photo obj
+const StyledGrid = styled.div`
+
+  display: inherit;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+
+  `
 
 const PantryList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
-    const query = selectedItems.join(','); // Convert selected items to strings to separate data
-    // const apiKey = import.meta.env.VITE_REACT_VAR;
-    // const query = selectedItems.join(","); // Convert selected items to strings to separate data
-
+    const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
+    const query = selectedItems.join(","); // Convert selected items to strings to separate data
+    const apiKey = import.meta.env.VITE_REACT_VAR;
 
     setLoading(true);
 
@@ -21,7 +45,7 @@ const PantryList = ({ selectedItems }) => {
     }
 
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKeyx}`
     )
       .then((response) => {
         if (!response.ok) {
@@ -47,18 +71,22 @@ const PantryList = ({ selectedItems }) => {
       return <p>No recipes found for selected items.</p>;
     } else {
       return (
-        <ul>
+        <StyledGrid>
+ 
           {recipes.map((recipe) => (
-            <li key={recipe.id}>
+            <StyledLi key={recipe.id}>
               <h4>{recipe.title}</h4>
               <img src={recipe.image} alt={recipe.title} />
               <a href={recipe.sourceUrl}>
                 <br />
-                Recipe Instructions for {recipe.title} 
+                Recipe Instructions for {recipe.title}
               </a>
-            </li>
+            </StyledLi>
+             
           ))}
-        </ul>
+          
+    
+        </StyledGrid>
       );
     }
   };
@@ -66,10 +94,15 @@ const PantryList = ({ selectedItems }) => {
   console.log("PantryList component rendered");
 
   return (
+    <>
     <div>
-      <h4>Recipes based on selected pantry items:</h4>
-      {renderRecipes()}
-    </div>
+      <StyledDiv>
+        <h4>Recipes based on selected pantry items:</h4>
+        {renderRecipes()}
+      </StyledDiv>
+      <br />
+      </div>
+    </>
   );
 };
 

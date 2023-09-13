@@ -1,6 +1,52 @@
-#ShoppingList {
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital@1&family=Roboto:ital,wght@1,900&display=swap');
 
-border: 10px solid gold;
 
+.container {
+    width: 80%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 45px 15px;
+    padding: 10px;
+}
+
+.ShoppingList{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Notepad_clipart.png') ;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+    padding: 100px;
+}
+
+.returnedList{
+    font-family: 'Lora', serif;
+    align-items: center;
+}
+
+form{
+   margin-top: 40px;
+   background-size: inherit;
+}
+
+.title{
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1rem, 10vw, 2rem);
+    margin-top: 10vh;
+}
+
+input{
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0;
+    border: none;
+}
+
+.Submit{
+    margin-top: 15px;
 
 }
