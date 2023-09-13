@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 const StyledLi = styled.ul`
   text-decoration: none ;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 const StyledDiv = styled.div`
   border: 2px solid black;
@@ -12,7 +16,7 @@ width: auto;
 const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px; 
+  gap: 14px; 
   `
 
 const EdamamList = ({ selectedItems }) => {

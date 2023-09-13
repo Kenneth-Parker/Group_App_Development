@@ -3,19 +3,27 @@ import styled from "styled-components";
 
 const StyledLi = styled.ul`
   text-decoration: none ;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 // rendered recipes
 const StyledDiv = styled.div`
+ display: grid;
 border: 2px solid grey;
 border-radius: 22px;
+background-color: #4d99cd91;
 `;
 
 // photo obj
 const StyledGrid = styled.div`
-  display: grid;
+
+  display: inherit;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px; 
+
   `
 
 const PantryList = ({ selectedItems }) => {
@@ -64,7 +72,7 @@ const PantryList = ({ selectedItems }) => {
     } else {
       return (
         <StyledGrid>
-        {/* <ul> */}
+ 
           {recipes.map((recipe) => (
             <StyledLi key={recipe.id}>
               <h4>{recipe.title}</h4>
@@ -74,8 +82,10 @@ const PantryList = ({ selectedItems }) => {
                 Recipe Instructions for {recipe.title}
               </a>
             </StyledLi>
+             
           ))}
-        {/* </ul> */}
+          
+    
         </StyledGrid>
       );
     }
@@ -85,11 +95,13 @@ const PantryList = ({ selectedItems }) => {
 
   return (
     <>
+    <div>
       <StyledDiv>
         <h4>Recipes based on selected pantry items:</h4>
         {renderRecipes()}
       </StyledDiv>
       <br />
+      </div>
     </>
   );
 };
