@@ -5,11 +5,13 @@ const StyledLi = styled.ul`
   text-decoration: none ;
 `;
 
+// rendered recipes
 const StyledDiv = styled.div`
 border: 2px solid grey;
 border-radius: 22px;
 `;
 
+// photo obj
 const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
