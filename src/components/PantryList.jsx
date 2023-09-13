@@ -3,13 +3,18 @@ import styled from "styled-components";
 
 const StyledLi = styled.ul`
   text-decoration: none ;
-`
+`;
 
 const StyledDiv = styled.div`
 border: 2px solid grey;
 border-radius: 22px;
-width: auto;
 `;
+
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+  `
 
 const PantryList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -17,10 +22,8 @@ const PantryList = ({ selectedItems }) => {
 
   useEffect(() => {
     const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
-    const query = selectedItems.join(','); // Convert selected items to strings to separate data
+    const query = selectedItems.join(","); // Convert selected items to strings to separate data
     const apiKey = import.meta.env.VITE_REACT_VAR;
-  
-
 
     setLoading(true);
 
@@ -58,18 +61,20 @@ const PantryList = ({ selectedItems }) => {
       return <p>No recipes found for selected items.</p>;
     } else {
       return (
-        <ul>
+        <StyledGrid>
+        {/* <ul> */}
           {recipes.map((recipe) => (
             <StyledLi key={recipe.id}>
               <h4>{recipe.title}</h4>
               <img src={recipe.image} alt={recipe.title} />
               <a href={recipe.sourceUrl}>
                 <br />
-                Recipe Instructions for {recipe.title} 
+                Recipe Instructions for {recipe.title}
               </a>
             </StyledLi>
           ))}
-        </ul>
+        {/* </ul> */}
+        </StyledGrid>
       );
     }
   };
@@ -77,10 +82,13 @@ const PantryList = ({ selectedItems }) => {
   console.log("PantryList component rendered");
 
   return (
-    <StyledDiv>
-      <h4>Recipes based on selected pantry items:</h4>
-      {renderRecipes()}
-    </StyledDiv>
+    <>
+      <StyledDiv>
+        <h4>Recipes based on selected pantry items:</h4>
+        {renderRecipes()}
+      </StyledDiv>
+      <br />
+    </>
   );
 };
 

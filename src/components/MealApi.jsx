@@ -9,6 +9,11 @@ const StyledDiv = styled.div`
 border-radius: 22px;
 width: auto;
 `;
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+  `
 
 const EdamamList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -54,7 +59,7 @@ const EdamamList = ({ selectedItems }) => {
       return <p>No recipes found for selected items.</p>;
     } else {
       return (
-        <ul>
+        <StyledGrid>
           {recipes.map((recipe, index) => (
             <StyledLi key={`${recipe.recipe.label}-${index}`}>
               <h4>{recipe.recipe.label}</h4>
@@ -65,7 +70,7 @@ const EdamamList = ({ selectedItems }) => {
               </a>
             </StyledLi>
           ))}
-        </ul>
+          </StyledGrid>
       );
     }
   };
