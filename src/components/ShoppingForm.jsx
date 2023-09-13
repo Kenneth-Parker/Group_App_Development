@@ -39,6 +39,7 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
         const updatedList = shoppingList.filter((listItems) => listItems !== itemToRemove)
         ingredients.filter((ingredient) => ingredient !== itemToRemove)
         setShoppingList(updatedList)
+       
     };
 
     const ReturnedList = () => {
@@ -52,16 +53,18 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
 
     return (
         <div className="container">
+                <h3 className="title">SHOPPING LIST</h3>
             <div className="ShoppingList">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="title">SHOPPING LIST</h3>
                     <input
                         name="item1"
                         type="text"
                         value={item1}
                         onChange={handleItem1}
                         placeholder="item 1"
+                        
                     />
+                    <hr></hr>
                     <input
                         name="item2"
                         type="text"
@@ -69,6 +72,7 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
                         onChange={handleItem2}
                         placeholder="item 2"
                     />
+                    <hr></hr>
                     <input
                         name="item3"
                         type="text"
@@ -76,6 +80,7 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
                         onChange={handleItem3}
                         placeholder="item 3"
                     />
+                    <hr></hr>
                     <input
                         name="item4"
                         type="text"
@@ -85,11 +90,12 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
                     />
                     <br></br>
                     <button
+                        className="Submit"
                         type="submit">
                         Submit</button>
                 </form>
             </div>
-            <div>
+            <div className="returnedList">
                 {ReturnedList()}
             </div>
         </div>
