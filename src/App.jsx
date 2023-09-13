@@ -21,7 +21,7 @@ function App() {
         <NavBar />
        
         <Routes>
-          <Route path="/" element={ <div><PantryList selectedItems={selectedItems} /> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> <EdamamList selectedItems={selectedItems} /></div>}/>
+          <Route path="/" element={ <div> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> <PantryList selectedItems={selectedItems} /> <EdamamList selectedItems={selectedItems} /> </div>}/>
           <Route path="/about" element={<h4>yup</h4>} />
           <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
           <Route path="/shopping List" element={<ShoppingForm/>}/>
