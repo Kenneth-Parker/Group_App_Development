@@ -3,7 +3,7 @@ import ingredients from "./pantryitems.js";
 import { useState } from "react";
 
 const ShoppingForm = ({shoppingList, setShoppingList}) => {
-    //const [shoppingList, setShoppingList] = useState([]);
+    // const [shoppingList, setShoppingList] = useState([]);
     const [item1, setItem1] = useState(" ");
     const [item2, setItem2] = useState(" ");
     const [item3, setItem3] = useState(" ");

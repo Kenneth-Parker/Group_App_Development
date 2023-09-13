@@ -13,7 +13,6 @@ import PantryList from "./components/PantryList";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
 
-
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
@@ -45,18 +44,14 @@ function App() {
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
           />
-          <Route path="/shopping List" element={<ShoppingForm />} />
+          <Route path="/shopping List" element={<ShoppingForm shoppingList={shoppingList} setShoppingList={setShoppingList}/>} />
         </Routes>
       </Router>
 
       {/* <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
       {/* <ShoppingForm/> */}
 
-
       {/* <IngredientDropdownList /> */}
-      
-
-
     </>
   );
 }
