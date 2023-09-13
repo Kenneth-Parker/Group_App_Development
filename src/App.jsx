@@ -29,8 +29,8 @@ function App() {
         </Routes>
       </Router>
 
-      <MealApi/>
-    
+      {/* <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
+      {/* <ShoppingForm/> */}
 
 
       {/* <IngredientDropdownList /> */}
