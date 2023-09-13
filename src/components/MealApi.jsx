@@ -1,4 +1,14 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const StyledLi = styled.ul`
+  text-decoration: none ;
+`;
+const StyledDiv = styled.div`
+  border: 2px solid black;
+border-radius: 22px;
+width: auto;
+`;
 
 const EdamamList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -17,7 +27,9 @@ const EdamamList = ({ selectedItems }) => {
       return;
     }
 
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appID}&app_key=${apiKey}`)
+    fetch(
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appID}&app_key=${apiKey}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network didn't return your response");
@@ -29,10 +41,10 @@ const EdamamList = ({ selectedItems }) => {
         setLoading(false);
         console.log("Received recipes data:", data.hits);
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.log("There's an err with fetching data:", error);
         setLoading(false);
-    });
+      });
   }, [selectedItems]);
 
   const renderRecipes = () => {
@@ -44,29 +56,28 @@ const EdamamList = ({ selectedItems }) => {
       return (
         <ul>
           {recipes.map((recipe, index) => (
-            <li key={`${recipe.recipe.label}-${index}`}>
+            <StyledLi key={`${recipe.recipe.label}-${index}`}>
               <h4>{recipe.recipe.label}</h4>
               <img src={recipe.recipe.image} alt={recipe.recipe.label} />
               <a href={recipe.recipe.url}>
-              <br />
-                Recipe Instructions for {recipe.title} 
+                <br />
+                Recipe Instructions for {recipe.recipe.label}
               </a>
-            </li>
+            </StyledLi>
           ))}
         </ul>
-      )
+      );
     }
-  }
+  };
 
   console.log("EdamamList component rendered");
 
-
   return (
-  <div style={{ border: '2px solid black' }}>
-    <h4>Recipes based on selected pantry items:</h4>
-    {renderRecipes()}
-    </div>
-    );
+    <StyledDiv>
+      <h4>Recipes based on selected pantry items:</h4>
+      {renderRecipes()}
+    </StyledDiv>
+  );
 };
 
 export default EdamamList;

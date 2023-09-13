@@ -1,11 +1,7 @@
 import IngredientDropdownList from "./IngredientDropdownList";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
-border: 2px solid grey;
-border-radius: 22px;
-width: auto;
-`;
+
 const StyledUl = styled.ul`
   text-decoration: none;
 `;
@@ -34,7 +30,8 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
   };
 
   return (
-    <StyledDiv>
+    <>
+    <div>
       <StyledH2>Select Ingredients</StyledH2>
       <IngredientDropdownList onSelect={handleSelect} />
 
@@ -48,7 +45,7 @@ const PantryItemSelector = ({ selectedItems, setSelectedItems }) => {
       </ul>
 
       {/* returns selected items underneath dropdown */}
-    </StyledDiv>
+    </div> <br /></>
   );
 };
 

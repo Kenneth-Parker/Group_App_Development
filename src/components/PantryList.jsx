@@ -1,4 +1,15 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const StyledLi = styled.ul`
+  text-decoration: none ;
+`
+
+const StyledDiv = styled.div`
+border: 2px solid grey;
+border-radius: 22px;
+width: auto;
+`;
 
 const PantryList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -49,14 +60,14 @@ const PantryList = ({ selectedItems }) => {
       return (
         <ul>
           {recipes.map((recipe) => (
-            <li key={recipe.id}>
+            <StyledLi key={recipe.id}>
               <h4>{recipe.title}</h4>
               <img src={recipe.image} alt={recipe.title} />
               <a href={recipe.sourceUrl}>
                 <br />
                 Recipe Instructions for {recipe.title} 
               </a>
-            </li>
+            </StyledLi>
           ))}
         </ul>
       );
@@ -66,10 +77,10 @@ const PantryList = ({ selectedItems }) => {
   console.log("PantryList component rendered");
 
   return (
-    <div>
+    <StyledDiv>
       <h4>Recipes based on selected pantry items:</h4>
       {renderRecipes()}
-    </div>
+    </StyledDiv>
   );
 };
 
