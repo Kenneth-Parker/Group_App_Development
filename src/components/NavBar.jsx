@@ -14,7 +14,6 @@ const StyledH1 = styled.h1`
 overflow-wrap: break-word;
 background: linear-gradient(
     90deg,
-  
     #094579 14%,
     #06aa7ee9 65%,
     #eef51ea8 85%

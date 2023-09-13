@@ -17,7 +17,7 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px; 
-  `
+  `;
 
 const EdamamList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -75,7 +75,7 @@ const EdamamList = ({ selectedItems }) => {
               </a>
             </StyledLi>
           ))}
-          </StyledGrid>
+        </StyledGrid>
       );
     }
   };
@@ -84,7 +84,7 @@ const EdamamList = ({ selectedItems }) => {
 
   return (
     <StyledDiv>
-      <h4>Recipes based on selected pantry items:</h4>
+      <h4>More recipes based on selected pantry items:</h4>
       {renderRecipes()}
     </StyledDiv>
   );
