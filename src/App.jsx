@@ -48,6 +48,15 @@ function App() {
           <Route path="/shopping List" element={<ShoppingForm />} />
         </Routes>
       </Router>
+
+      {/* <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
+      {/* <ShoppingForm/> */}
+
+
+      {/* <IngredientDropdownList /> */}
+      
+
+
     </>
   );
 }
