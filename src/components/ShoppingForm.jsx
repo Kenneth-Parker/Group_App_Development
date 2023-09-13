@@ -2,8 +2,7 @@ import "./ShoppingForm.css"
 import ingredients from "./pantryitems.js";
 import { useState } from "react";
 
-const ShoppingForm = () => {
-    const [shoppingList, setShoppingList] = useState([]);
+const ShoppingForm = ( {shoppingList, setShoppingList}) => {
     const [item1, setItem1] = useState(" ");
     const [item2, setItem2] = useState(" ");
     const [item3, setItem3] = useState(" ");
