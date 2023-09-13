@@ -16,7 +16,8 @@ import ShoppingForm from "./components/ShoppingForm";
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
-  console.log(selectedItems);
+  const [shoppingList, setShoppingList] = useState([]);
+  console.log(shoppingList);
 
   return (
     <>
@@ -39,6 +40,7 @@ function App() {
             }
           />
           <Route path="/about" element={<h4>yup</h4>} />
+
           <Route
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
@@ -46,8 +48,6 @@ function App() {
           <Route path="/shopping List" element={<ShoppingForm />} />
         </Routes>
       </Router>
-
-      {/* <IngredientDropdownList /> */}
     </>
   );
 }
