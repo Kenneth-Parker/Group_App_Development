@@ -1,14 +1,17 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { useState } from 'react';
-import './App.css';
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
 
-import NavBar from './components/NavBar';
-import PantryList from './components/PantryList';
-import PantryItemSelector from './components/PantryItemSelector';
-import EdamamList from './components/MealApi';
-import MealApi from './components/MealApi';
-import ShoppingForm from './components/ShoppingForm';
-// import IngredientDropdownList from './components/IngredientDropdownList';
+import NavBar from "./components/NavBar";
+import PantryItemSelector from "./components/PantryItemSelector";
+import PantryList from "./components/PantryList";
+import EdamamList from "./components/MealApi";
+import ShoppingForm from "./components/ShoppingForm";
 
 
 function App() {
@@ -20,22 +23,31 @@ function App() {
     <>
       <Router>
         <NavBar />
-       
+
         <Routes>
-          <Route path="/" element={ <div> <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> <PantryList selectedItems={selectedItems} /> <EdamamList selectedItems={selectedItems} /> </div>}/>
+          <Route
+            path="/"
+            element={
+              <div>
+                {" "}
+                <PantryItemSelector
+                  selectedItems={selectedItems}
+                  setSelectedItems={setSelectedItems}
+                />{" "}
+                <PantryList selectedItems={selectedItems} />{" "}
+                <EdamamList selectedItems={selectedItems} />{" "}
+              </div>
+            }
+          />
           <Route path="/about" element={<h4>yup</h4>} />
-          <Route path="/contact" element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>} />
-          <Route path="/shopping List" element={<ShoppingForm shoppingList={shoppingList} setShoppingList={setShoppingList}/>}/>
+
+          <Route
+            path="/contact"
+            element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
+          />
+          <Route path="/shopping List" element={<ShoppingForm />} />
         </Routes>
       </Router>
-
-      <MealApi/>
-    
-
-
-      {/* <IngredientDropdownList /> */}
-      
-
     </>
   );
 }

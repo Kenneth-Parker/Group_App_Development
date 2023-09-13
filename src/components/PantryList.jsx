@@ -45,7 +45,7 @@ const PantryList = ({ selectedItems }) => {
     }
 
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKeyx}`
     )
       .then((response) => {
         if (!response.ok) {
