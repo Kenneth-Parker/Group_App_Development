@@ -9,7 +9,6 @@ import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
 import RecipesPage from "./components/RecipesPage";
 
-
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
@@ -40,7 +39,9 @@ function App() {
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
           />
-          <Route path="/recipe" element={<RecipesPage />} />
+          {/* <Route path="/recipe" element={<RecipesPage />} /> */}
+
+          <Route path="/recipe/:recipe_id" element={<RecipesPage />} />
 
           <Route
             path="/shopping List"

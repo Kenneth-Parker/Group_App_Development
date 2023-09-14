@@ -20,12 +20,12 @@ background-color: #54dbc09a;
 `;
 
 // photo obj
-const StyledGrid = styled.div`
+// const StyledGrid = styled.div`
 
-  display: contain;
-  gap: 20px; 
+//   display: contain;
+//   gap: 20px; 
 
-  `;
+//   `;
 
 const PantryList = ({ selectedItems }) => {
   const [recipes, setRecipes] = useState([]);
@@ -46,7 +46,7 @@ const PantryList = ({ selectedItems }) => {
     }
 
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKeyx}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
     )
       .then((response) => {
         if (!response.ok) {
@@ -94,28 +94,41 @@ const PantryList = ({ selectedItems }) => {
     <>
       <div>
         <StyledDiv>
+       
           <h4>Recipes based on selected pantry items:</h4>
-          {loading ? (
+          {/*state of loading - but it's initially false */}
+
+          {loading ? 
+          (
             <p>Loading...</p>
           ) : recipes.length === 0 ? (
             <p>No recipes found for selected items.</p>
-          ) : (
-            <StyledGrid>
-              {recipes.map((recipe) => (
+          ) : 
+          (
+            // <StyledGrid>
+            <div>
+
+              {recipes.map((recipe) => 
+              (
                 <StyledLi key={recipe.id}>
                   <h4>{recipe.title}</h4>
                   <img src={recipe.image} alt={recipe.title} />
-                  <Link to={{ pathname: "/recipe", state: { recipe } }}>
+{/* gave it a name _ */}
+                  <Link to={ `/recipe/${recipe.id}` }>
                     Recipe Instructions for {recipe.title}
                   </Link>
+
                 </StyledLi>
-              ))}
-            </StyledGrid>
+              )
+              )}
+</div>
+            // </StyledGrid>
           )}
+
         </StyledDiv>
         <br />
 
-        {recipes.length > 0 && <Link to="/recipes">View Recipes</Link>}
+        {recipes.length > 0 && <Link to="/recipe">View Recipes</Link>}
       </div>
     </>
   );
