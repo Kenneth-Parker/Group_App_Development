@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
@@ -19,7 +18,7 @@ background: linear-gradient(
     #eef51ea8 85%
   );
   background-clip: text;
- text-fill-color: transparent;
+ -text-fill-color: transparent;
  border-radius: 7px;
 margin:17px 0px 9px 0px;
   /* max-width: max-content; */
@@ -41,7 +40,6 @@ export default function NavBar() {
     <>
       <StyledHeader>
         <StyledH1>Ur Ingredients - Hour Recipes</StyledH1>
-
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
