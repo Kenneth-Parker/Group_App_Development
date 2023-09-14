@@ -1,6 +1,7 @@
 import "./ShoppingForm.css"
 import ingredients from "./pantryitems.js";
 import { useState } from "react";
+import Draggable from "react-draggable";
 
 const ShoppingForm = ({shoppingList, setShoppingList}) => {
     //const [shoppingList, setShoppingList] = useState([]);
@@ -52,6 +53,7 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
     };
 
     return (
+        <Draggable>
         <div className="container">
                 <h3 className="title">SHOPPING LIST</h3>
             <div className="ShoppingList">
@@ -94,11 +96,12 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
                         type="submit">
                         Submit</button>
                 </form>
-            </div>
             <div className="returnedList">
                 {ReturnedList()}
             </div>
+            </div>
         </div>
+        </Draggable>
     );
 };
 
