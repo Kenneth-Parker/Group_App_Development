@@ -7,6 +7,7 @@ import PantryList from "./components/PantryList";
 import PantryItemSelector from "./components/PantryItemSelector";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
+import RecipesPage from "./components/RecipesPage";
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
           />
+          <Route path="/recipe" element={<RecipesPage />} />
+
           <Route
             path="/shopping List"
             element={

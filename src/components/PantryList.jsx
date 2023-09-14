@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -15,13 +16,13 @@ const StyledDiv = styled.div`
 border: 2px solid grey;
 border-radius: 22px;
 background-color: #54dbc09a;
+
 `;
 
 // photo obj
 const StyledGrid = styled.div`
 
-  display: inherit;
-  grid-template-columns: repeat(3, 1fr);
+  display: contain;
   gap: 20px; 
 
   `;
@@ -32,7 +33,7 @@ const PantryList = ({ selectedItems }) => {
 
   useEffect(() => {
     const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
-    const query = selectedItems.join(","); 
+    const query = selectedItems.join(",");
     const apiKey = import.meta.env.VITE_REACT_VAR;
 
     setLoading(true);
@@ -64,28 +65,28 @@ const PantryList = ({ selectedItems }) => {
       });
   }, [selectedItems]);
 
-  const renderRecipes = () => {
-    if (loading) {
-      return <p>Loading...</p>;
-    } else if (recipes.length === 0) {
-      return <p>No recipes found for selected items.</p>;
-    } else {
-      return (
-        <StyledGrid>
-          {recipes.map((recipe) => (
-            <StyledLi key={recipe.id}>
-              <h4>{recipe.title}</h4>
-              <img src={recipe.image} alt={recipe.title} />
-              <a href={recipe.sourceUrl}>
-                <br />
-                Recipe Instructions for {recipe.title}
-              </a>
-            </StyledLi>
-          ))}
-        </StyledGrid>
-      );
-    }
-  };
+  // const renderRecipes = () => {
+  //   if (loading) {
+  //     return <p>Loading...</p>;
+  //   } else if (recipes.length === 0) {
+  //     return <p>No recipes found for selected items.</p>;
+  //   } else {
+  //     return (
+  //       <StyledGrid>
+  //         {recipes.map((recipe) => (
+  //           <StyledLi key={recipe.id}>
+  //             <h4>{recipe.title}</h4>
+  //             <img src={recipe.image} alt={recipe.title} />
+  //             <a href={recipe.sourceUrl}>
+  //               <br />
+  //               Recipe Instructions for {recipe.title}
+  //             </a>
+  //           </StyledLi>
+  //         ))}
+  //       </StyledGrid>
+  //     );
+  //   }
+  // };
 
   console.log("PantryList component rendered");
 
@@ -94,9 +95,27 @@ const PantryList = ({ selectedItems }) => {
       <div>
         <StyledDiv>
           <h4>Recipes based on selected pantry items:</h4>
-          {renderRecipes()}
+          {loading ? (
+            <p>Loading...</p>
+          ) : recipes.length === 0 ? (
+            <p>No recipes found for selected items.</p>
+          ) : (
+            <StyledGrid>
+              {recipes.map((recipe) => (
+                <StyledLi key={recipe.id}>
+                  <h4>{recipe.title}</h4>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <Link to={{ pathname: "/recipe", state: { recipe } }}>
+                    Recipe Instructions for {recipe.title}
+                  </Link>
+                </StyledLi>
+              ))}
+            </StyledGrid>
+          )}
         </StyledDiv>
         <br />
+
+        {recipes.length > 0 && <Link to="/recipes">View Recipes</Link>}
       </div>
     </>
   );
