@@ -74,16 +74,14 @@ const ShowRecipePage = ({ shoppingList, setShoppingList }) => {
           <h3>Ingredients:</h3>
           <ul>
             {fetchedRecipeObj.extendedIngredients.map((ingredient, index) => (
-              <li key={index}>{ingredient.name}</li>
+              <li key={index}>{ingredient.name} </li>
             ))}
           </ul>
           <div className="Shopping-Btn">
             <span>
               {" "}
-              <p>Need Things?</p>
-              <button onClick={toggleShopping} className="toggle-btn">
-                {toggle ? "close" : "open"}
-              </button>
+              <p onClick={toggleShopping}>{!toggle ? "Add to your Shopping List" : "close"}</p>
+              {" "}
             </span>
           </div>
         </div>

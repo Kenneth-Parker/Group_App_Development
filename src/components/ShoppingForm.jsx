@@ -1,14 +1,27 @@
 import "./ShoppingForm.css"
 import ingredients from "./pantryitems.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Draggable from 'react-draggable'
 
-const ShoppingForm = ({shoppingList, setShoppingList}) => {
-    // const [shoppingList, setShoppingList] = useState([]);
+const ShoppingForm = () => {
+    const [shoppingList, setShoppingList] = useState([]);
     const [item1, setItem1] = useState(" ");
     const [item2, setItem2] = useState(" ");
     const [item3, setItem3] = useState(" ");
     const [item4, setItem4] = useState(" ");
+    
+    function handleItem1(event) {
+        setItem1(event.target.value)
+    };
+    function handleItem2(event) {
+        setItem2(event.target.value)
+    };
+    function handleItem3(event) {
+        setItem3(event.target.value)
+    };
+    function handleItem4(event) {
+        setItem4(event.target.value)
+    };
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -23,25 +36,15 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
         setItem4("")
     };
 
-    function handleItem1(event) {
-        setItem1(event.target.value)
-    };
-    function handleItem2(event) {
-        setItem2(event.target.value)
-    };
-    function handleItem3(event) {
-        setItem3(event.target.value)
-    };
-    function handleItem4(event) {
-        setItem4(event.target.value)
-    };
 
+  
     function handleOnClick(itemToRemove) {
         const updatedList = shoppingList.filter((listItems) => listItems !== itemToRemove)
         ingredients.filter((ingredient) => ingredient !== itemToRemove)
         setShoppingList(updatedList)
        
     };
+
 
     const ReturnedList = () => {
         return (
@@ -55,6 +58,8 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
    </ul>
    );
 };
+
+
     return (
         <Draggable>
         <div className="container">
