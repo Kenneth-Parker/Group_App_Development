@@ -44,7 +44,6 @@ export default function NavBar() {
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
           <StyledLink to="/contact">Contact</StyledLink>
-          <StyledLink to="/shoppingList">ShoppingList</StyledLink>
         </StyledNav>
       </StyledHeader>
     </>
