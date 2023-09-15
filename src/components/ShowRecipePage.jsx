@@ -10,18 +10,6 @@ const ShowRecipePage = () => {
 
   const [fetchedRecipeObj, setFetchedRecipeObj] = useState(null);
   console.log(fetchedRecipeObj);
-  // https://api.spoonacular.com/recipes/{id}/information
-  // `https://api.spoonacular.com/recipes/${recipe_id}/information?includeNutrition=false`
-  //https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true.
-  // `https://api.spoonacular.com/recipes/${recipe_id}/information??apiKey=${apiKey}&includeNutrition=true`
-
-  //   const options = {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Key": "b89fb8faa9msh40a677f6078ef48p1f0f40jsnb7ca42e40fb0",
-  //       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  //     },
-  //   };
 
   useEffect(() => {
     fetch(`https://api.spoonacular.com/recipes/${recipe_id}/information?apiKey=${apiKeyx}&includeNutrition=false
@@ -56,5 +44,3 @@ const ShowRecipePage = () => {
 };
 
 export default ShowRecipePage;
-
-// attempt: fetch again, gather by id - render
