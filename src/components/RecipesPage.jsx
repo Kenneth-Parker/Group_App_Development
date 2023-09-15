@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const RecipesPage = () => {
-  // const RecipesPage = ( {recipe}) => {
+
 
   const { recipe_id } = useParams();
   console.log(recipe_id);
@@ -11,8 +11,7 @@ const RecipesPage = () => {
   const [fetchedRecipeObj, setFetchedRecipeObj] = useState(null);
   console.log(fetchedRecipeObj);
   // https://api.spoonacular.com/recipes/{id}/information
-
-  //     `https://api.spoonacular.com/recipes/${recipe_id}/information?includeNutrition=false`
+  // `https://api.spoonacular.com/recipes/${recipe_id}/information?includeNutrition=false`
   //https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true.
   // `https://api.spoonacular.com/recipes/${recipe_id}/information??apiKey=${apiKey}&includeNutrition=true`
 
@@ -35,11 +34,12 @@ const RecipesPage = () => {
       })
       .then((data) => {
         console.log("Received recipes data:", data.results);
+        setFetchedRecipeObj(data)
       })
       .catch((error) => {
         console.error("Fetch error:", error);
       });
-  }, []);
+  }, [recipe_id, apiKeyx]);
 
   if (!fetchedRecipeObj) {
     return <p>Recipe not found.</p>;
@@ -47,10 +47,10 @@ const RecipesPage = () => {
 
   return (
     <div>
-      {/* <h2>{recipe.title}</h2>
-        <img src={recipe.image} alt={recipe.title} /> */}
-      {/* <p>{recipe.instructions}</p> */}
-      <h3>recipe obj {recipe_id}</h3>;
+      <h2> {fetchedRecipeObj.title}</h2>
+        <img src={fetchedRecipeObj.image} alt={fetchedRecipeObj.title} /> 
+      <p> Instructions: {fetchedRecipeObj.instructions}</p>
+      {/* <h3> Ingredients: {fetchedRecipeObj.extendedIngredients}</h3>; */}
     </div>
   );
 };
