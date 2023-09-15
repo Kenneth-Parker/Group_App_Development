@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const PantryList = ({ selectedItems }) => {
+const PantryList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -8,6 +8,7 @@ const PantryList = ({ selectedItems }) => {
     const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
     const query = selectedItems.join(','); // Convert selected items to strings to separate data
     const apiKey = import.meta.env.VITE_REACT_VAR;
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}&number=${numberOfResultsShown}`;
   
 
 
@@ -20,9 +21,7 @@ const PantryList = ({ selectedItems }) => {
       return;
     }
 
-    fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}`
-    )
+    fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -38,7 +37,7 @@ const PantryList = ({ selectedItems }) => {
         console.error("Fetch error:", error);
         setLoading(false);
       });
-  }, [selectedItems]);
+  }, [selectedItems, numberOfResultsShown]);
 
   const renderRecipes = () => {
     if (loading) {
