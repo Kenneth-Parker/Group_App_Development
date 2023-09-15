@@ -14,8 +14,8 @@ border-radius: 22px;
 width: auto;
 `;
 const StyledGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: contain;
+  
   gap: 14px; 
   `;
 

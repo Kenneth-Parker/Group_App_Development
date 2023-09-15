@@ -1,17 +1,13 @@
-import {
-  useLocation,
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 
 import NavBar from "./components/NavBar";
-import PantryItemSelector from "./components/PantryItemSelector";
 import PantryList from "./components/PantryList";
+import PantryItemSelector from "./components/PantryItemSelector";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
+import ShowRecipePage from "./components/ShowRecipePage";
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -39,19 +35,25 @@ function App() {
             }
           />
           <Route path="/about" element={<h4>yup</h4>} />
-
           <Route
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
           />
-          <Route path="/shopping List" element={<ShoppingForm shoppingList={shoppingList} setShoppingList={setShoppingList}/>} />
+          {/* <Route path="/recipe" element={<RecipesPage />} /> */}
+
+          <Route path="/recipe/:recipe_id" element={<ShowRecipePage />} />
+
+          <Route
+            path="/shoppingList"
+            element={
+              <ShoppingForm
+                shoppingList={shoppingList}
+                setShoppingList={setShoppingList}
+              />
+            }
+          />
         </Routes>
       </Router>
-
-      {/* <PantryItemSelector selectedItems={selectedItems} setSelectedItems={setSelectedItems} /> */}
-      {/* <ShoppingForm/> */}
-
-      {/* <IngredientDropdownList /> */}
     </>
   );
 }
