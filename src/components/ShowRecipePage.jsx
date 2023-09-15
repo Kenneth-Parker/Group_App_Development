@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const RecipesPage = () => {
+const ShowRecipePage = () => {
 
 
   const { recipe_id } = useParams();
@@ -55,6 +55,6 @@ const RecipesPage = () => {
   );
 };
 
-export default RecipesPage;
+export default ShowRecipePage;
 
 // attempt: fetch again, gather by id - render
