@@ -128,7 +128,7 @@ const PantryList = ({ selectedItems }) => {
         </StyledDiv>
         <br />
 
-        {recipes.length > 0 && <Link to="/recipe">View Recipes</Link>}
+        {/* {recipes.length > 0 && <Link to="/recipe">View Recipes</Link>} */}
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import "./ShowRecipePage.css";
 const ShowRecipePage = () => {
   const { recipe_id } = useParams();
   console.log(recipe_id);
@@ -32,27 +32,36 @@ const ShowRecipePage = () => {
   }
 
   return (
-    <div>
-      <h2> {fetchedRecipeObj.title}</h2>
-      <img src={fetchedRecipeObj.image} alt={fetchedRecipeObj.title} />
-      <p>
-        {" "}
-        Prep Time: {fetchedRecipeObj.preperationMinutes}minutes <br /> Cooking
-        Time: <em>{fetchedRecipeObj.cookingMinutes} minutes </em> <br /> Ready
-        In: {fetchedRecipeObj.readyInMinutes} minutes
-        <br /> Servings: {fetchedRecipeObj.servings}
-        <br /> Vegan: {fetchedRecipeObj.vegan}{" "}
-      </p>
+    <div id="recipe-container">
+      <article id="info">
+        <h2> {fetchedRecipeObj.title}</h2>
+        <img src={fetchedRecipeObj.image} alt={fetchedRecipeObj.title} />
+
+        <p>
+          {" "}
+          <b>Prep Time: </b>
+          {fetchedRecipeObj.preperationMinutes}minutes <br />{" "}
+          <b>Cooking Time:</b>{" "}
+          <em>{fetchedRecipeObj.cookingMinutes} minutes </em> <br />{" "}
+          <b>Ready In:</b> {fetchedRecipeObj.readyInMinutes} minutes
+          <br /> <b>Servings:</b> {fetchedRecipeObj.servings}
+          <br /> <b>Vegan:</b>
+          {fetchedRecipeObj.vegan}{" "}
+        </p>
+
+        <div id="ingredients">
+          <h3>Ingredients:</h3>
+          <ul>
+            {fetchedRecipeObj.extendedIngredients.map((ingredient, index) => (
+              <li key={index}>{ingredient.name}</li>
+            ))}
+          </ul>
+        </div>
+      </article>
 
       <div>
-        <h3>Ingredients:</h3>
-        <ul>
-          {fetchedRecipeObj.extendedIngredients.map((ingredient, index) => (
-            <li key={index}>{ingredient.name}</li>
-          ))}
-        </ul>
+        <p> Instructions: {fetchedRecipeObj.instructions}</p>
       </div>
-      <p> Instructions: {fetchedRecipeObj.instructions}</p>
     </div>
   );
 };
