@@ -37,22 +37,33 @@ function App() {
         </select>
         <Routes>
           <Route path="/" element={numberOfResultsShown === 10 ? ( 
-          <div><PantryList 
-          selectedItems={selectedItems} 
-          numberOfResultsShown={numberOfResultsShown} 
-          /> 
-          <PantryItemSelector
+          <div>
+                      <PantryItemSelector
            selectedItems={selectedItems} 
            setSelectedItems={setSelectedItems} 
            /> 
+            <PantryList 
+          selectedItems={selectedItems} 
+          numberOfResultsShown={numberOfResultsShown} 
+          /> 
            </div> 
            ) : numberOfResultsShown === 20 ? (
+            <>
+            <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
            <EdamamList 
            selectedItems={selectedItems} 
            numberOfResultsShown={20} 
            /> 
+           </>
            ) : numberOfResultsShown === 30 ? ( 
            <> 
+            <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
            <PantryList 
            selectedItems={selectedItems} 
            numberOfResultsShown={10} 
@@ -64,6 +75,10 @@ function App() {
            </>
            ) : numberOfResultsShown === 40 ? ( 
             <> 
+                        <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
             <PantryList 
             selectedItems={selectedItems} 
             numberOfResultsShown={20} 
@@ -75,6 +90,10 @@ function App() {
             </>
             ) : numberOfResultsShown === 50 ? ( 
               <> 
+                          <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
               <PantryList 
               selectedItems={selectedItems} 
               numberOfResultsShown={30} 
@@ -86,6 +105,10 @@ function App() {
               </>
               ) :  numberOfResultsShown === 60 ? ( 
                 <> 
+                            <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
                 <PantryList 
                 selectedItems={selectedItems} 
                 numberOfResultsShown={40} 
@@ -97,6 +120,10 @@ function App() {
                 </>
                 ) : numberOfResultsShown === 70 ? ( 
                   <> 
+                              <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
                   <PantryList 
                   selectedItems={selectedItems} 
                   numberOfResultsShown={50} 
@@ -108,6 +135,10 @@ function App() {
                   </>
                   ) : numberOfResultsShown === 80 ? ( 
                     <> 
+                                <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
                     <PantryList 
                     selectedItems={selectedItems} 
                     numberOfResultsShown={60} 
@@ -119,6 +150,10 @@ function App() {
                     </>
                     ) : numberOfResultsShown === 90 ? ( 
                       <> 
+                                  <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
                       <PantryList 
                       selectedItems={selectedItems} 
                       numberOfResultsShown={70} 
@@ -130,6 +165,10 @@ function App() {
                       </>
                       ) : numberOfResultsShown === 100 ? ( 
                         <> 
+                                    <PantryItemSelector
+            selectedItems={selectedItems} 
+            setSelectedItems={setSelectedItems} 
+            /> 
                         <PantryList 
                         selectedItems={selectedItems} 
                         numberOfResultsShown={80} 
@@ -142,28 +181,6 @@ function App() {
                         ) : null 
            }
            />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                {" "}
-                <PantryItemSelector
-                  selectedItems={selectedItems}
-                  setSelectedItems={setSelectedItems}
-                />{" "}
-                <PantryList selectedItems={selectedItems} />{" "}
-                <EdamamList selectedItems={selectedItems} />{" "}
-              </div>
-            }
-          />
-          <Route path="/about" element={<h4>yup</h4>} />
-          <Route
-            path="/contact"
-            element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
-          />
-          {/* <Route path="/recipe" element={<RecipesPage />} /> */}
 
           <Route path="/recipe/:recipe_id" element={<ShowRecipePage />} />
 
