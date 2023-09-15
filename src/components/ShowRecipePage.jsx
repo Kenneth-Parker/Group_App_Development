@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-
 import ShoppingForm from "./ShoppingForm";
 import "./ShowRecipePage.css";
 
-const ShowRecipePage = ({shoppingList, setShoppingList}) => {
+const ShowRecipePage = ({ shoppingList, setShoppingList }) => {
   const { recipe_id } = useParams();
   console.log(recipe_id);
   const apiKeyx = import.meta.env.VITE_REACT_VAR;
 
-  
   const [fetchedRecipeObj, setFetchedRecipeObj] = useState(null);
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
   console.log(fetchedRecipeObj);
 
   useEffect(() => {
@@ -34,21 +32,24 @@ const ShowRecipePage = ({shoppingList, setShoppingList}) => {
   }, [recipe_id, apiKeyx]);
 
   const toggleShopping = () => {
-    setToggle(!toggle)
-  }
+    setToggle(!toggle);
+  };
 
   if (!fetchedRecipeObj) {
-    return(
+    return (
       <>
-      <p>Recipe not found.</p>
-      <button onClick={toggleShopping}
-      className="toggle-btn">{toggle?"close":"open"}</button>
-      {toggle && (<ShoppingForm
-                shoppingList={shoppingList}
-                setShoppingList={setShoppingList}/>)}
-
+        <p>Recipe not found.</p>
+        <button onClick={toggleShopping} className="toggle-btn">
+          {toggle ? "close" : "open"}
+        </button>
+        {toggle && (
+          <ShoppingForm
+            shoppingList={shoppingList}
+            setShoppingList={setShoppingList}
+          />
+        )}
       </>
-    )
+    );
   }
 
   return (
@@ -77,18 +78,26 @@ const ShowRecipePage = ({shoppingList, setShoppingList}) => {
             ))}
           </ul>
           <div className="Shopping-Btn">
-         <span> <p>Need Things?</p>
-          <button onClick={toggleShopping}
-      className="toggle-btn">{toggle?"close":"open"}</button></span></div>
+            <span>
+              {" "}
+              <p>Need Things?</p>
+              <button onClick={toggleShopping} className="toggle-btn">
+                {toggle ? "close" : "open"}
+              </button>
+            </span>
+          </div>
         </div>
       </article>
 
       <div>
         <p> Instructions: {fetchedRecipeObj.instructions}</p>
       </div>
-      {toggle && (<ShoppingForm
-                shoppingList={shoppingList}
-                setShoppingList={setShoppingList}/>)}
+      {toggle && (
+        <ShoppingForm
+          shoppingList={shoppingList}
+          setShoppingList={setShoppingList}
+        />
+      )}
     </div>
   );
 };
