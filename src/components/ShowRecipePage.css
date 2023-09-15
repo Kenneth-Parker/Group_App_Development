@@ -1,0 +1,27 @@
+
+#recipe-container {
+    border: 1px solid blue;
+    border-radius: 22px;
+    margin: 12px;
+    padding: 32px;
+    display: contain;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+   
+}
+
+#info {
+    border: 2px solid white;
+    border-radius: 11px;
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  gap: 33px;
+}
+
+#ingredients {
+    text-align: start;
+
+}

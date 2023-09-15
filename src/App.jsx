@@ -7,8 +7,7 @@ import PantryList from "./components/PantryList";
 import PantryItemSelector from "./components/PantryItemSelector";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
-import RecipesPage from "./components/RecipesPage";
-
+import ShowRecipePage from "./components/ShowRecipePage";
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -40,7 +39,9 @@ function App() {
             path="/contact"
             element={<p>"therewasafarmerhadadogandbingowashisnameo"</p>}
           />
-          <Route path="/recipe" element={<RecipesPage />} />
+          {/* <Route path="/recipe" element={<RecipesPage />} /> */}
+
+          <Route path="/recipe/:recipe_id" element={<ShowRecipePage />} />
 
           <Route
             path="/shopping List"
