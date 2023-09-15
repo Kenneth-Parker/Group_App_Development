@@ -1,8 +1,28 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const StyledLi = styled.ul`
+  text-decoration: none ;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+const StyledDiv = styled.div`
+  border: 2px solid black;
+border-radius: 22px;
+width: auto;
+`;
+const StyledGrid = styled.div`
+  display: contain;
+  
+  gap: 14px; 
+  `;
 
 const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_REACT_VAR2;
@@ -30,7 +50,7 @@ const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
         setLoading(false);
         console.log("Received recipes data:", data.hits);
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.log("There's an err with fetching data:", error);
         setLoading(false);
     });
@@ -44,31 +64,30 @@ const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
     } else {
 
       return (
-        <ul>
+        <StyledGrid>
           {recipes.map((recipe, index) => (
-            <li key={`${recipe.recipe.label}-${index}`}>
+            <StyledLi key={`${recipe.recipe.label}-${index}`}>
               <h4>{recipe.recipe.label}</h4>
               <img src={recipe.recipe.image} alt={recipe.recipe.label} />
               <a href={recipe.recipe.url}>
-              <br />
-                Recipe Instructions for {recipe.title} 
+                <br />
+                Recipe Instructions for {recipe.recipe.label}
               </a>
-            </li>
+            </StyledLi>
           ))}
-        </ul>
-      )
+        </StyledGrid>
+      );
     }
-  }
+  };
 
   console.log("EdamamList component rendered");
 
-
   return (
-  <div style={{ border: '2px solid black' }}>
-    <h4>Recipes based on selected pantry items:</h4>
-    {renderRecipes()}
-    </div>
-    );
+    <StyledDiv>
+      <h4>More recipes based on selected pantry items:</h4>
+      {renderRecipes()}
+    </StyledDiv>
+  );
 };
 
 export default EdamamList;
