@@ -80,10 +80,8 @@ const ShowRecipePage = ({ shoppingList, setShoppingList }) => {
           <div className="Shopping-Btn">
             <span>
               {" "}
-              <p>Need Things?</p>
-              <button onClick={toggleShopping} className="toggle-btn">
-                {toggle ? "close" : "open"}
-              </button>
+              <p onClick={toggleShopping}>{!toggle ? "Add to your Shopping List" : "close"}</p>
+              {" "}
             </span>
           </div>
         </div>
