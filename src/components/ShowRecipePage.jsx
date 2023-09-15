@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+
 import ShoppingForm from "./ShoppingForm";
 import "./ShowRecipePage.css";
 
@@ -74,14 +76,16 @@ const ShowRecipePage = ({shoppingList, setShoppingList}) => {
               <li key={index}>{ingredient.name}</li>
             ))}
           </ul>
+          <div className="Shopping-Btn">
+         <span> <p>Need Things?</p>
+          <button onClick={toggleShopping}
+      className="toggle-btn">{toggle?"close":"open"}</button></span></div>
         </div>
       </article>
 
       <div>
         <p> Instructions: {fetchedRecipeObj.instructions}</p>
       </div>
-      <button onClick={toggleShopping}
-      className="toggle-btn">{toggle?"close":"open"}</button>
       {toggle && (<ShoppingForm
                 shoppingList={shoppingList}
                 setShoppingList={setShoppingList}/>)}
