@@ -19,7 +19,7 @@ const StyledGrid = styled.div`
   gap: 14px; 
   `;
 
-const EdamamList = ({ selectedItems }) => {
+const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -28,6 +28,7 @@ const EdamamList = ({ selectedItems }) => {
     const apiKey = import.meta.env.VITE_REACT_VAR2;
     const query = selectedItems.join(",");
     const appID = import.meta.env.VITE_REACT_VAR2_ID;
+    const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appID}&app_key=${apiKey}&to=${numberOfResultsShown}`;
 
     setLoading(true);
 
@@ -37,9 +38,7 @@ const EdamamList = ({ selectedItems }) => {
       return;
     }
 
-    fetch(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appID}&app_key=${apiKey}`
-    )
+    fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network didn't return your response");
@@ -54,8 +53,8 @@ const EdamamList = ({ selectedItems }) => {
       .catch((error) => {
         console.log("There's an err with fetching data:", error);
         setLoading(false);
-      });
-  }, [selectedItems]);
+    });
+  }, [selectedItems, numberOfResultsShown]);
 
   const renderRecipes = () => {
     if (loading) {
@@ -63,6 +62,7 @@ const EdamamList = ({ selectedItems }) => {
     } else if (recipes.length === 0) {
       return <p>No recipes found for selected items.</p>;
     } else {
+
       return (
         <StyledGrid>
           {recipes.map((recipe, index) => (
