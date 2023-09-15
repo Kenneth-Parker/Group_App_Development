@@ -8,7 +8,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-   
 }
 
 #info {
@@ -23,5 +22,13 @@
 
 #ingredients {
     text-align: start;
+}
 
+.Shopping-Btn {
+    display: flex;
+    align-items: center;
+}
+
+.Shopping-Btn p {
+    margin-right: 20px;
 }

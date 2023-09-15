@@ -1,6 +1,7 @@
 import "./ShoppingForm.css"
 import ingredients from "./pantryitems.js";
 import { useState } from "react";
+import Draggable from 'react-draggable'
 
 const ShoppingForm = ({shoppingList, setShoppingList}) => {
     //const [shoppingList, setShoppingList] = useState([]);
@@ -45,13 +46,17 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
     const ReturnedList = () => {
         return (
             <ul>
-                {shoppingList.map((item, i) => (
-                    <li id={i} value={item} onClick={() => handleOnClick(item)}>{item}</li>))}
-            </ul>
-        )
-    };
-
+                {shoppingList && shoppingList.length > 0 ? (
+                shoppingList.map((item, i) => (
+                    <li key={i} id={i} value={item} onClick={() => handleOnClick(item)}>{item}</li>))
+   ) : (
+    <li>No items on your list</li>
+   )}
+   </ul>
+   );
+};
     return (
+        <Draggable>
         <div className="container">
                 <h3 className="title">SHOPPING LIST</h3>
             <div className="ShoppingList">
@@ -99,6 +104,7 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
                 {ReturnedList()}
             </div>
         </div>
+        </Draggable>
     );
 };
 

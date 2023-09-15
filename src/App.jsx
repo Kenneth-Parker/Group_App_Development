@@ -44,7 +44,7 @@ function App() {
           <Route path="/recipe/:recipe_id" element={<ShowRecipePage />} />
 
           <Route
-            path="/shopping List"
+            path="/shoppingList"
             element={
               <ShoppingForm
                 shoppingList={shoppingList}
