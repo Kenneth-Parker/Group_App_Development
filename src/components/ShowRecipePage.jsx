@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ShoppingForm from "./ShoppingForm";
 import "./ShowRecipePage.css";
-const ShowRecipePage = () => {
+
+const ShowRecipePage = ({shoppingList, setShoppingList}) => {
   const { recipe_id } = useParams();
   console.log(recipe_id);
   const apiKeyx = import.meta.env.VITE_REACT_VAR;
 
+  
   const [fetchedRecipeObj, setFetchedRecipeObj] = useState(null);
+  const [toggle, setToggle] = useState(false)
   console.log(fetchedRecipeObj);
 
   useEffect(() => {
@@ -27,8 +31,22 @@ const ShowRecipePage = () => {
       });
   }, [recipe_id, apiKeyx]);
 
+  const toggleShopping = () => {
+    setToggle(!toggle)
+  }
+
   if (!fetchedRecipeObj) {
-    return <p>Recipe not found.</p>;
+    return(
+      <>
+      <p>Recipe not found.</p>
+      <button onClick={toggleShopping}
+      className="toggle-btn">{toggle?"close":"open"}</button>
+      {toggle && (<ShoppingForm
+                shoppingList={shoppingList}
+                setShoppingList={setShoppingList}/>)}
+
+      </>
+    )
   }
 
   return (
@@ -62,6 +80,11 @@ const ShowRecipePage = () => {
       <div>
         <p> Instructions: {fetchedRecipeObj.instructions}</p>
       </div>
+      <button onClick={toggleShopping}
+      className="toggle-btn">{toggle?"close":"open"}</button>
+      {toggle && (<ShoppingForm
+                shoppingList={shoppingList}
+                setShoppingList={setShoppingList}/>)}
     </div>
   );
 };

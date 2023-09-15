@@ -45,12 +45,15 @@ const ShoppingForm = ({shoppingList, setShoppingList}) => {
     const ReturnedList = () => {
         return (
             <ul>
-                {shoppingList.map((item, i) => (
-                    <li id={i} value={item} onClick={() => handleOnClick(item)}>{item}</li>))}
-            </ul>
-        )
-    };
-
+                {shoppingList && shoppingList.length > 0 ? (
+                shoppingList.map((item, i) => (
+                    <li key={i} id={i} value={item} onClick={() => handleOnClick(item)}>{item}</li>))
+   ) : (
+    <li>No items on your list</li>
+   )}
+   </ul>
+   );
+};
     return (
         <div className="container">
                 <h3 className="title">SHOPPING LIST</h3>
