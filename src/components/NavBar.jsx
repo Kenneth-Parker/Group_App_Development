@@ -7,6 +7,9 @@ border: 2px solid teal;
 color: #ffffff;
 padding: 10px;
 border-radius: 22px;
+max-width: 100%;
+        max-height: 100%;
+
 `;
 
 const StyledH1 = styled.h1`
