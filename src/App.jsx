@@ -14,8 +14,7 @@ function App() {
   const [numberOfResultsShown, setNumberOfResultsShown] = useState(10);
   console.log("numberOfResultsShown in App:", numberOfResultsShown);
   console.log(selectedItems);
-  const [shoppingList, setShoppingList] = useState([]);
-  console.log(shoppingList);
+
 
   return (
     <>
@@ -188,8 +187,6 @@ function App() {
             path="/shoppingList"
             element={
               <ShoppingForm
-                shoppingList={shoppingList}
-                setShoppingList={setShoppingList}
               />
             }
           />

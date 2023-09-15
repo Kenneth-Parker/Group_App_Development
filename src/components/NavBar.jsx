@@ -42,7 +42,7 @@ export default function NavBar() {
   return (
     <>
       <StyledHeader>
-        <StyledH1>Ur Ingredients - Hour Recipes</StyledH1>
+        <StyledH1>Ur Ingredients - ⏳our Recipes</StyledH1>
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
