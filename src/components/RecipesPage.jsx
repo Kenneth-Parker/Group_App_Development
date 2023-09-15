@@ -6,7 +6,7 @@ const RecipesPage = () => {
 
   const { recipe_id } = useParams();
   console.log(recipe_id);
-  const apiKey = import.meta.env.VITE_REACT_VAR;
+  const apiKeyx = import.meta.env.VITE_REACT_VAR;
 
   const [fetchedRecipeObj, setFetchedRecipeObj] = useState(null);
   console.log(fetchedRecipeObj);
@@ -16,17 +16,17 @@ const RecipesPage = () => {
   //https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true.
   // `https://api.spoonacular.com/recipes/${recipe_id}/information??apiKey=${apiKey}&includeNutrition=true`
 
-  const options = {
-    method: "GET",
-    headers: {
-      "x-api-key": apiKey,
-    },
-  };
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": "b89fb8faa9msh40a677f6078ef48p1f0f40jsnb7ca42e40fb0",
+  //       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  //     },
+  //   };
+
   useEffect(() => {
-    fetch(
-      `https://api.spoonacular.com/recipes/${recipe_id}/information?&includeNutrition=true`,
-      options
-    )
+    fetch(`https://api.spoonacular.com/recipes/${recipe_id}/information?apiKey=${apiKeyx}&includeNutrition=false
+      `)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
