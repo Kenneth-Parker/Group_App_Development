@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const ShowRecipePage = () => {
-
-
   const { recipe_id } = useParams();
   console.log(recipe_id);
   const apiKeyx = import.meta.env.VITE_REACT_VAR;
@@ -22,7 +20,7 @@ const ShowRecipePage = () => {
       })
       .then((data) => {
         console.log("Received recipes data:", data.results);
-        setFetchedRecipeObj(data)
+        setFetchedRecipeObj(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -36,7 +34,15 @@ const ShowRecipePage = () => {
   return (
     <div>
       <h2> {fetchedRecipeObj.title}</h2>
-        <img src={fetchedRecipeObj.image} alt={fetchedRecipeObj.title} /> 
+      <img src={fetchedRecipeObj.image} alt={fetchedRecipeObj.title} />
+      <p>
+        {" "}
+        Prep Time: {fetchedRecipeObj.preperationMinutes}minutes <br /> Cooking
+        Time: <em>{fetchedRecipeObj.cookingMinutes} minutes </em> <br /> Ready
+        In: {fetchedRecipeObj.readyInMinutes} minutes
+        <br /> Servings: {fetchedRecipeObj.servings}
+        <br /> Vegan: {fetchedRecipeObj.vegan}{" "}
+      </p>
       <p> Instructions: {fetchedRecipeObj.instructions}</p>
       {/* <h3> Ingredients: {fetchedRecipeObj.extendedIngredients}</h3>; */}
     </div>
