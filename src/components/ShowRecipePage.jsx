@@ -43,8 +43,16 @@ const ShowRecipePage = () => {
         <br /> Servings: {fetchedRecipeObj.servings}
         <br /> Vegan: {fetchedRecipeObj.vegan}{" "}
       </p>
+
+      <div>
+        <h3>Ingredients:</h3>
+        <ul>
+          {fetchedRecipeObj.extendedIngredients.map((ingredient, index) => (
+            <li key={index}>{ingredient.name}</li>
+          ))}
+        </ul>
+      </div>
       <p> Instructions: {fetchedRecipeObj.instructions}</p>
-      {/* <h3> Ingredients: {fetchedRecipeObj.extendedIngredients}</h3>; */}
     </div>
   );
 };
