@@ -8,21 +8,20 @@ color: #ffffff;
 padding: 10px;
 border-radius: 22px;
 max-width: 100%;
-        max-height: 100%;
-
+max-height: 100%;
 `;
 
 const StyledH1 = styled.h1`
 overflow-wrap: break-word;
 background: linear-gradient(
-    90deg,
-    #094579 14%,
-    #06aa7ee9 65%,
-    #eef51ea8 85%
-  );
-  background-clip: text;
- -text-fill-color: transparent;
- border-radius: 7px;
+90deg,
+#094579 14%,
+#06aa7ee9 65%,
+#eef51ea8 85%
+);
+background-clip: text;
+-text-fill-color: transparent;
+border-radius: 7px;
 margin:17px 0px 9px 0px;
   /* max-width: max-content; */
 `;

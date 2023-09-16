@@ -4,9 +4,11 @@ import styled from "styled-components";
 
 const StyledLi = styled.ul`
   text-decoration: none ;
+  
   img {
     max-width: 100%;
     height: auto;
+
   }
 `;
 
@@ -70,13 +72,12 @@ const PantryList = ({ selectedItems, numberOfResultsShown }) => {
           ) : recipes.length === 0 ? (
             <p>No recipes found for selected items.</p>
           ) : (
-            <StyledGrid>
               <div>
                 {recipes.map((recipe) => (
                   <StyledLi key={recipe.id}>
                     <h4>{recipe.title}</h4>
                     <img src={recipe.image} alt={recipe.title} />
-                    {/* gave it a name _ */}
+                    {/* gave it a name _ */}<br />
                     <Link to={`/recipe/${recipe.id}`}>
                       Recipe Instructions for {recipe.title}
                     </Link>
@@ -84,7 +85,6 @@ const PantryList = ({ selectedItems, numberOfResultsShown }) => {
                 ))}
               </div>
               //{" "}
-            </StyledGrid>
           )}
         </StyledDiv>
         <br />

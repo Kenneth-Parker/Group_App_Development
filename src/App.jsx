@@ -8,6 +8,7 @@ import PantryItemSelector from "./components/PantryItemSelector";
 import EdamamList from "./components/MealApi";
 import ShoppingForm from "./components/ShoppingForm";
 import ShowRecipePage from "./components/ShowRecipePage";
+import NumberOfResults from "./NumberOfResults";
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -21,23 +22,12 @@ function App() {
       <Router>
         <NavBar />
         {/* dropdown for max results */}
-        <label>Select number of results:</label>
-       <select value={numberOfResultsShown} onChange={(e) => setNumberOfResultsShown(parseInt(e.target.value))} >
-        <option value={10}>10</option>
-        <option value={20}>20</option>
-        <option value={30}>30</option>
-        <option value={40}>40</option>
-        <option value={50}>50</option>
-        <option value={60}>60</option>
-        <option value={70}>70</option>
-        <option value={80}>80</option>
-        <option value={90}>90</option>
-        <option value={100}>100</option>
-        </select>
+      
         <Routes>
+     
           <Route path="/" element={numberOfResultsShown === 10 ? ( 
           <div>
-                      <PantryItemSelector
+                     <NumberOfResults numberOfResultsShown={numberOfResultsShown} setNumberOfResultsShown={setNumberOfResultsShown}/> <PantryItemSelector
            selectedItems={selectedItems} 
            setSelectedItems={setSelectedItems} 
            /> 
