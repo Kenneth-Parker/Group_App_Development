@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import headerpic from "../assets/Ur Ingredients.png"
 
 const StyledHeader = styled.header`
+
 background-color: #173458;
 border: 2px solid teal;
 color: #ffffff;
@@ -13,6 +15,7 @@ max-width: 100%;
 `;
 
 const StyledH1 = styled.h1`
+
 overflow-wrap: break-word;
 background: linear-gradient(
     90deg,
@@ -26,6 +29,8 @@ background: linear-gradient(
 margin:17px 0px 9px 0px;
   /* max-width: max-content; */
 `;
+
+
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -37,12 +42,20 @@ const StyledLink = styled(Link)`
   margin-right: 20px;
   color: goldenrod;
 `;
+// const StyleBackgroundDiv = styled.div`
+// background-image: url(${headerpic});
+// background-size: cover;
+// height: 100px;
+// width: 100px;
+// flex-grow: 1;
+// `
+
 
 export default function NavBar() {
   return (
     <>
       <StyledHeader>
-        <StyledH1>Ur Ingredients - ⏳our Recipes</StyledH1>
+      <StyledH1>Ur Ingredients - ⏳our Recipes</StyledH1>
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
@@ -52,3 +65,4 @@ export default function NavBar() {
     </>
   );
 }
+
