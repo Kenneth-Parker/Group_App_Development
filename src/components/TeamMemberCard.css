@@ -1,0 +1,49 @@
+.profile-image {
+  margin: auto;
+  margin-top: 22px;
+  border: teal solid 3px;
+  border-radius: 25%;
+  width: 55%;
+  height: auto;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 11px;
+}
+
+
+.team-member-card {
+  border: .25px solid rgba(0, 183, 255, 0.359);
+  border-radius: 2%;
+  overflow: hidden; 
+  transition: border 0.3s;
+}
+
+.team-member-card:hover {
+  border: 3px solid rgba(255, 255, 0, 0.614);
+  border-radius: 2%;
+}
+
+.social-links a {
+  color: rgb(0, 122, 122); 
+  text-decoration: none; 
+}
+
+
+.social-links a:hover {
+  color: yellow; 
+}
+
+.info {
+  opacity: 0;
+  padding: 10px;
+  transition: opacity 0.3s;
+}
+
+.team-member-card:hover .info {
+  opacity: 1;
+}
+
