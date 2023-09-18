@@ -1,0 +1,43 @@
+/* NavBar.css */
+.styled-header {
+    background-color: #173458;
+    border: 2px solid teal;
+    color: #ffffff;
+    margin-bottom: -37px;
+    padding: 87px;
+    border-radius: 22px;
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url('../assets/Ur Ingredients.PNG');
+    background-size: 99% 99%;
+}
+
+.styled-h1 {
+    overflow-wrap: break-word;
+    background: linear-gradient(90deg,
+            #094579 14%,
+            #06aa7ee9 65%,
+            #eef51ea8 85%);
+    background-clip: text;
+    /* -webkit-text-fill-color: transparent; /* Safari/Chrome */
+    /* -moz-text-fill-color: transparent; /* Firefox */
+    border-radius: 7px;
+    margin: 17px 0px 9px 0px;
+}
+
+.styled-nav {
+    display: flex;
+    margin-bottom: 22px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.styled-link {
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 22px; 
+    font-family:Arial, Helvetica, sans-serif;
+    color: goldenrod;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
