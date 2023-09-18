@@ -28,13 +28,14 @@ const ShoppingForm = () => {
         event.preventDefault();
         const newItems = [item1, item2, item3, item4].filter((item) => item.trim() !== "");
         const uniqueItems = newItems.filter((newItem) => !ingredients.includes(newItem));
-        setIngredients([...uniqueItems])
-        console.log(ingredients)
+        setIngredients(...uniqueItems)
+       uniqueItems.forEach((item) => ingredients.push(item))
         setShoppingList([...shoppingList, ...newItems])
         setItem1("")
         setItem2("")
         setItem3("")
         setItem4("")
+        console.log(ingredients)
     };
 
     function handleOnClick(itemToRemove) {
@@ -42,6 +43,7 @@ const ShoppingForm = () => {
         const updatedIngredients = ingredients.filter((ingredient) => ingredient !== itemToRemove)
         setShoppingList(updatedList)
         setIngredients([...updatedIngredients])
+        console.log(ingredients)
     };
 
     const ReturnedList = () => {
