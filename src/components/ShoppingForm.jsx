@@ -5,6 +5,7 @@ import Draggable from 'react-draggable'
 
 const ShoppingForm = () => {
     const [shoppingList, setShoppingList] = useState([]);
+    const [ingredientsArr, setIngredients] = useState(ingredients)
     const [item1, setItem1] = useState(" ");
     const [item2, setItem2] = useState(" ");
     const [item3, setItem3] = useState(" ");
@@ -27,7 +28,7 @@ const ShoppingForm = () => {
         event.preventDefault();
         const newItems = [item1, item2, item3, item4].filter((item) => item.trim() !== "");
         const uniqueItems = newItems.filter((newItem) => !ingredients.includes(newItem));
-        ingredients.push(...uniqueItems)
+        setIngredients([...uniqueItems])
         console.log(ingredients)
         setShoppingList([...shoppingList, ...newItems])
         setItem1("")
@@ -36,13 +37,11 @@ const ShoppingForm = () => {
         setItem4("")
     };
 
-
-  
     function handleOnClick(itemToRemove) {
         const updatedList = shoppingList.filter((listItems) => listItems !== itemToRemove)
-        ingredients.filter((ingredient) => ingredient !== itemToRemove)
+        const updatedIngredients = ingredients.filter((ingredient) => ingredient !== itemToRemove)
         setShoppingList(updatedList)
-       
+        setIngredients([...updatedIngredients])
     };
 
 
