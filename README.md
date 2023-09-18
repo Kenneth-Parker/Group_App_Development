@@ -1,4 +1,4 @@
-![🍽️ Ur Ingredients-Hour Recipes](../assets/UrIngredients.png)
+![🍽️ Ur Ingredients-Hour Recipes](https://ur-ingredients-hour-recipes.netlify.app)
 
 Ur Ingredients-Hour Recipes is a user-friendly mobile app that's dedicated to making your cooking experience more efficient and eco-friendly. Say goodbye to food waste and hello to delicious, inventive meals! 
 
