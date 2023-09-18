@@ -10,12 +10,6 @@ import ShowRecipePage from "./components/ShowRecipePage";
 import ShoppingForm from "./components/ShoppingForm";
 import ResultsDropdown from './components/ResultsDropdown';
 
-import NavBar from "./components/NavBar";
-import PantryList from "./components/PantryList";
-import PantryItemSelector from "./components/PantryItemSelector";
-import EdamamList from "./components/MealApi";
-import ShoppingForm from "./components/ShoppingForm";
-import ShowRecipePage from "./components/ShowRecipePage";
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
