@@ -14,7 +14,6 @@
   margin: 11px;
 }
 
-
 .team-member-card {
   border: .25px solid rgba(0, 183, 255, 0.359);
   border-radius: 2%;
@@ -31,7 +30,6 @@
   color: rgb(0, 122, 122); 
   text-decoration: none; 
 }
-
 
 .social-links a:hover {
   color: yellow; 

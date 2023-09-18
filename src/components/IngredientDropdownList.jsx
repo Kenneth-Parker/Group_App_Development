@@ -6,7 +6,6 @@ const IngredientDropdownList = ({ onSelect }) => {
   const [allIngredients, setAllIngredients] = useState([]);
 
   useEffect(() => {
-
      setAllIngredients(ingredients);
    }, []);
 

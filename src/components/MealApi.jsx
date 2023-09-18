@@ -15,14 +15,12 @@ width: auto;
 `;
 const StyledGrid = styled.div`
   display: contain;
-  
   gap: 14px; 
   `;
 
 const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
-
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_REACT_VAR2;
