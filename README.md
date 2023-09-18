@@ -1,4 +1,6 @@
-[ 🍽️ Ur Ingredients-Hour Recipes](https://ur-ingredients-hour-recipes.netlify.app)
+
+![🍽️ Ur Ingredients-Hour Recipes](https://www.canva.com/design/DAFuvsxvhMg/5MVQnK0XEsaOgzae1HFZRw/view?utm_content=DAFuvsxvhMg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 
 Ur Ingredients-Hour Recipes is a user-friendly mobile app that's dedicated to making your cooking experience more efficient and eco-friendly. Say goodbye to food waste and hello to delicious, inventive meals! 
 
@@ -21,7 +23,7 @@ This app helps you make the most of your pantry and fridge ingredients by provid
 🧱 Team Developed Logo for use!
 
 Usage:
-Visit [spontaneous-chaja-27412f.netlify.app] for use 
+Visit [ 🍽️ Ur Ingredients-Hour Recipes](https://ur-ingredients-hour-recipes.netlify.app) for use 
 
 Clone the repository to your local machine.
 Install the required dependencies using npm i.
