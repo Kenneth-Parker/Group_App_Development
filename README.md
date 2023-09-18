@@ -1,4 +1,4 @@
-![🍽️ Ur Ingredients-Hour Recipes](../assets/UrIngredients.png)
+![🍽️ Ur Ingredients-Hour Recipes](https://www.canva.com/design/DAFuvsxvhMg/5MVQnK0XEsaOgzae1HFZRw/view?utm_content=DAFuvsxvhMg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 Ur Ingredients-Hour Recipes is a user-friendly mobile app that's dedicated to making your cooking experience more efficient and eco-friendly. Say goodbye to food waste and hello to delicious, inventive meals! 
 
