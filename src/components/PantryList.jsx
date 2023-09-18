@@ -19,25 +19,15 @@ background-color: #54dbc09a;
 
 `;
 
-// photo obj
-// const StyledGrid = styled.div`
-
-//   display: contain;
-//   gap: 20px; 
-
-//   `;
-
 const PantryList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
+    // const apiKeyx = import.meta.env.VITE_REACT_APP_XSPOON_API_KEY;
     const query = selectedItems.join(",");
     const apiKey = import.meta.env.VITE_REACT_VAR;
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeInformation=true&apiKey=${apiKey}&number=${numberOfResultsShown}`;
-  
-
 
     setLoading(true);
 
@@ -65,71 +55,35 @@ const PantryList = ({ selectedItems, numberOfResultsShown }) => {
         setLoading(false);
       });
   }, [selectedItems, numberOfResultsShown]);
-
-  // const renderRecipes = () => {
-  //   if (loading) {
-  //     return <p>Loading...</p>;
-  //   } else if (recipes.length === 0) {
-  //     return <p>No recipes found for selected items.</p>;
-  //   } else {
-  //     return (
-  //       <StyledGrid>
-  //         {recipes.map((recipe) => (
-  //           <StyledLi key={recipe.id}>
-  //             <h4>{recipe.title}</h4>
-  //             <img src={recipe.image} alt={recipe.title} />
-  //             <a href={recipe.sourceUrl}>
-  //               <br />
-  //               Recipe Instructions for {recipe.title}
-  //             </a>
-  //           </StyledLi>
-  //         ))}
-  //       </StyledGrid>
-  //     );
-  //   }
-  // };
-
   console.log("PantryList component rendered");
 
   return (
     <>
       <div>
         <StyledDiv>
-       
           <h4>Recipes based on selected pantry items:</h4>
           {/*state of loading - but it's initially false */}
 
-          {loading ? 
-          (
+          {loading ? (
             <p>Loading...</p>
           ) : recipes.length === 0 ? (
             <p>No recipes found for selected items.</p>
-          ) : 
-          (
-            // <StyledGrid>
+          ) : (
             <div>
-
-              {recipes.map((recipe) => 
-              (
+              {recipes.map((recipe) => (
                 <StyledLi key={recipe.id}>
                   <h4>{recipe.title}</h4>
                   <img src={recipe.image} alt={recipe.title} />
-{/* gave it a name _ */}
-                  <Link to={ `/recipe/${recipe.id}` }>
+                  {/* gave it a name _ */}
+                  <Link to={`/recipe/${recipe.id}`}>
                     Recipe Instructions for {recipe.title}
                   </Link>
-
                 </StyledLi>
-              )
-              )}
-</div>
-            // </StyledGrid>
+              ))}
+            </div>
           )}
-
         </StyledDiv>
         <br />
-
-        {/* {recipes.length > 0 && <Link to="/recipe">View Recipes</Link>} */}
       </div>
     </>
   );

@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import headerpic from "../assets/Ur Ingredients.png"
+import headerpic from "../assets/UrIngredients.png"
 
 const StyledHeader = styled.header`
-
-background-color: #173458;
+/* background-image: url(${headerpic}); */
+/* background-color: #173458; */
 border: 2px solid teal;
 color: #ffffff;
 padding: 10px;
 border-radius: 22px;
 max-width: 100%;
-        max-height: 100%;
+max-height: 100%;
 
 `;
 
@@ -26,8 +26,6 @@ background: linear-gradient(
   background-clip: text;
  -text-fill-color: transparent;
  border-radius: 7px;
-margin:17px 0px 9px 0px;
-  /* max-width: max-content; */
 `;
 
 
@@ -42,26 +40,31 @@ const StyledLink = styled(Link)`
   margin-right: 20px;
   color: goldenrod;
 `;
-// const StyleBackgroundDiv = styled.div`
-// background-image: url(${headerpic});
-// background-size: cover;
-// height: 100px;
-// width: 100px;
-// flex-grow: 1;
-// `
+const StyleBackgroundDiv = styled.div`
+  background-image: url(${headerpic});
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100vw;
+  max-height: 100vh;
 
-
+`
 export default function NavBar() {
   return (
     <>
+     <StyleBackgroundDiv>
       <StyledHeader>
+     
       <StyledH1>Ur Ingredients - ⏳our Recipes</StyledH1>
+     
         <StyledNav>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
           <StyledLink to="/contact">Contact</StyledLink>
         </StyledNav>
+      
       </StyledHeader>
+      </StyleBackgroundDiv>
     </>
   );
 }

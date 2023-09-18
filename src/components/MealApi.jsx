@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLi = styled.ul`
@@ -22,7 +23,6 @@ const StyledGrid = styled.div`
 const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
-
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_REACT_VAR2;
@@ -53,7 +53,7 @@ const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
       .catch((error) => {
         console.log("There's an err with fetching data:", error);
         setLoading(false);
-    });
+      });
   }, [selectedItems, numberOfResultsShown]);
 
   const renderRecipes = () => {
@@ -62,17 +62,16 @@ const EdamamList = ({ selectedItems, numberOfResultsShown }) => {
     } else if (recipes.length === 0) {
       return <p>No recipes found for selected items.</p>;
     } else {
-
       return (
         <StyledGrid>
           {recipes.map((recipe, index) => (
             <StyledLi key={`${recipe.recipe.label}-${index}`}>
               <h4>{recipe.recipe.label}</h4>
               <img src={recipe.recipe.image} alt={recipe.recipe.label} />
-              <a href={recipe.recipe.url}>
+              <Link to={`/recipe/${recipe.recipe.label}`}>
                 <br />
                 Recipe Instructions for {recipe.recipe.label}
-              </a>
+              </Link>
             </StyledLi>
           ))}
         </StyledGrid>
