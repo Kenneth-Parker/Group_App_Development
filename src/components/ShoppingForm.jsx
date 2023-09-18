@@ -44,7 +44,6 @@ const ShoppingForm = () => {
         setIngredients([...updatedIngredients])
     };
 
-
     const ReturnedList = () => {
         return (
             <ul>
@@ -57,7 +56,6 @@ const ShoppingForm = () => {
    </ul>
    );
 };
-
 
     return (
         <Draggable>
