@@ -36,15 +36,12 @@ const ShoppingForm = () => {
         setItem4("")
     };
 
-
-  
     function handleOnClick(itemToRemove) {
         const updatedList = shoppingList.filter((listItems) => listItems !== itemToRemove)
         ingredients.filter((ingredient) => ingredient !== itemToRemove)
         setShoppingList(updatedList)
        
     };
-
 
     const ReturnedList = () => {
         return (
@@ -58,7 +55,6 @@ const ShoppingForm = () => {
    </ul>
    );
 };
-
 
     return (
         <Draggable>
