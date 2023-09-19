@@ -23,7 +23,7 @@ This app helps you make the most of your pantry and fridge ingredients by provid
 🧱 Team Developed Logo for use!
 
 Usage:
-Visit [ 🍽️ Ur Ingredients-Hour Recipes](https://ur-ingredients-hour-recipes.netlify.app) for use 
+Visit [(https://ur-ingredients-hour-recipes.netlify.app)] for use 
 
 Clone the repository to your local machine.
 Install the required dependencies using npm i.

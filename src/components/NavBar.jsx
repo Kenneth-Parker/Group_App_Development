@@ -16,6 +16,9 @@ export default function NavBar() {
         <Link to="/contact" className="styled-link">
           Contact
         </Link>
+        <Link to="/shoppingList" className="styled-link">
+          ShoppingForm
+        </Link>
       </nav>
     </>
   );

@@ -66,7 +66,6 @@ const ShowRecipePage = ({ shoppingList, setShoppingList }) => {
           <em>{fetchedRecipeObj.cookingMinutes} minutes </em> <br />{" "}
           <b>Ready In:</b> {fetchedRecipeObj.readyInMinutes} minutes
           <br /> <b>Servings:</b> {fetchedRecipeObj.servings}
-          <br /> <b>Vegan:</b>
           {fetchedRecipeObj.vegan}{" "}
         </p>
 
